@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>YCWU SPACE-資格與榮譽</title>
+       <link rel="icon" href="icon/favicon.svg" type="image/svg+xml">
+    <style>
+        body { 
+            font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
+            background-color:#FFFFFF; 
+            color:#333; 
+            margin:0; 
+            padding:0;
+        }
+
+        header { 
+            background:#f4f7fa; 
+            padding:15px; 
+            display:flex; 
+            justify-content:space-between; 
+            align-items:center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav a {
+            margin:0 10px; 
+            text-decoration:none; 
+            color:#333;
+            transition: all 2.0s;
+        }
+
+        nav a:hover {
+            color:#0073e6; 
+            font-weight:bold; 
+            transform: scale(1.2);
+        }
+
+        .search-box {
+            display: inline-flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-top: 12px;
+            margin-left: 0px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .search-box:hover {
+            box-shadow: 0 0 5px rgba(0, 115, 230, 0.4);
+        }
+
+        .container { 
+            padding:40px; 
+            max-width:1200px; 
+            margin:auto;
+        }
+
+        h1,h2,h3 { 
+            color:#0073e6; 
+            margin:5px 0; 
+        }
+
+        .language-toggle { 
+            cursor:pointer; 
+            font-weight:bold; 
+            color:#333; 
+        }
+
+        footer { 
+            text-align:center; 
+            padding:10px; 
+            background:#f4f7fa; 
+            animation: fadeIn 1s ease-in-out 1s forwards;
+        }
+
+        /* ✨ 卡片樣式 ✨ */
+        .award-section {
+            margin-bottom: 60px;
+        }
+
+        .section-divider {
+            border-bottom: 2px solid #444;
+            margin: 50px 0;
+        }
+
+        .award-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .award-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 500px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .award-card .tag {
+            background-color: #0073e6;
+            color: white;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .award-card .date {
+            font-size: 14px;
+            color: #888;
+            margin: 5px 0;
+        }
+
+        .award-card h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .award-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+            .site-logo {
+              height: 80px;  /* 原本 60px，改小一點 */
+              width: auto;
+              border-radius: 8px;
+            }
+
+        /* 手機版調整 */
+        @media (max-width: 768px) {
+            .award-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .award-card {
+                width: 90%;
+            }
+        }
+
+        /* ✨ 動畫 ✨ */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script>
+        let currentLang = 'zh';
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+            document.documentElement.lang = currentLang;
+        }
+
+        function toggleLanguage() {
+            currentLang = (currentLang === 'zh') ? 'en' : 'zh';
+            updateLanguage();
+        }
+
+        function siteSearch() {
+            const query = document.getElementById("searchInput").value.trim().toLowerCase();
+            if (query.includes("首頁") || query.includes("home")) {
+                window.location.href = "index.html";
+            } else if (query.includes("關於我") || query.includes("about")) {
+                window.location.href = "about.html";
+            } else if (query.includes("公開發表作品") || query.includes("publications")) {
+                window.location.href = "publications.html";
+            } else if (query.includes("資格與榮譽") || query.includes("awards")) {
+                window.location.href = "awards.html";
+            } else if (query.includes("生活紀錄") || query.includes("life")) {
+                window.location.href = "life.html";
+            } else if (query.includes("聯絡方式") || query.includes("contact")) {
+                window.location.href = "contact.html";
+            } else {
+                alert("找不到相關內容，請重新輸入。");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateLanguage();
+        });
+    </script>
+</head>
+
+<body>
+<header>
+  <div>
+    <a href="index.html">
+      <img src="icon/logo.svg" alt="個人Logo" class="site-logo">
+    </a>
+  </div>
+    <div>
+        <nav>
+            <a href="index.html" data-lang data-zh="首頁" data-en="Home"></a>
+            <a href="about.html" data-lang data-zh="關於我" data-en="About"></a>
+            <a href="publications.html" data-lang data-zh="公開發表作品" data-en="Publications"></a>
+            <a href="awards.html" data-lang data-zh="資格與榮譽" data-en="Awards"></a>
+            <a href="life.html" data-lang data-zh="生活紀錄" data-en="Life"></a>
+            <a href="contact.html" data-lang data-zh="聯絡方式" data-en="Contact"></a>
+        </nav>
+        <div class="search-box">
+            <input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
+            <button onclick="siteSearch()">🔍</button>
+        </div>
+        <span class="language-toggle" onclick="toggleLanguage()">中文/English</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- 🎓 資格證書 -->
+    <div class="award-section">
+        <h2>🎓 資格證書</h2>
+        <div class="award-grid">
+            <div class="award-card">
+                <span class="tag">證書</span>
+                <p class="date">2024年8月 · 台灣半導體研究中心</p>
+                <h3>半導體製程技術核准證書</h3>
+                <p>完成台灣半導體研究中心開設之訓練課程並獲取結業證書，證書號為(113)SMN證字-第231號。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">證書</span>
+                <p class="date">2024年8月 · 台灣半導體研究中心</p>
+                <h3>半導體設備核准證書</h3>
+                <p>完成台灣半導體研究中心開設之訓練課程並獲取結業證書，證書號為(113)SMEN證字-第369號。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">證書</span>
+                <p class="date">2023年8月 · 財團法人語言訓練中心</p>
+                <h3>日本語能力認證書(N5)</h3>
+                <p>語言能力測試合格並取得證書，證書號為N5A074649T。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">證書</span>
+                <p class="date">2020年1月 · 中國機械工程學會</p>
+                <h3>機械工程師能力證書</h3>
+                <p>認證考試合格並取得證書。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">證書</span>
+                <p class="date">2019年2月 · 勞動部勞動力發展署技能檢定中心</p>
+                <h3>機械加工乙級證書</h3>
+                <p>通過該領域之認證考試並取得證書（證書編號：185-0005346）。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">證書</span>
+                <p class="date">2018年8月 · 勞動部勞動力發展署技能檢定中心</p>
+                <h3>機械加工丙級證書</h3>
+                <p>通過該領域之認證考試並取得證書（證書編號：185-0036124）。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">證書</span>
+                <p class="date">2018年7月 · 勞動部勞動力發展署技能檢定中心</p>
+                <h3>氣壓丙級證書</h3>
+                <p>通過該領域之認證考試並取得證書（證書編號：080-0019479）。</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- 🏅 榮譽獎項 -->
+    <div class="award-section">
+        <h2>🏅 榮譽獎項</h2>
+        <div class="award-grid">
+            <div class="award-card">
+                <span class="tag">競賽</span>
+                <p class="date">2024年10月 · CSME 2024</p>
+                <h3>學生論文發表競賽第一名</h3>
+                <p>以論文題目"大尺寸二硫化鎢二維材料之兩階段化學氣相沉積技術開發"發表，並取得學生論文發表競賽第一名。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">證書</span>
+                <p class="date">2018年7月 · 國立臺灣師範大學</p>
+                <h3>高技創競賽第一名</h3>
+                <p>於全國技術型高級中等學校學生團隊技術創造力培訓與競賽，以一種應用『機電』創意組合的設計果汁機，榮獲第一名。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- 💰 榮獲補助 -->
+    <div class="award-section">
+        <h2>💰 榮獲補助</h2>
+        <div class="award-grid">
+            <div class="award-card">
+                <span class="tag">補助</span>
+                <p class="date">2025年8月 · 國科會</p>
+                <h3>國際研討會出國補助</h3>
+                <p>榮獲國科會全額補助，參加於本名古屋舉辦之ISPlasma2025/IC-PLANTS2025國際研討會並發表論文。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">書卷</span>
+                <p class="date">2024年5月 · 國立虎尾科技大學</p>
+                <h3>書卷獎</h3>
+                <p>課業成績達到獲取資格。</p>
+            </div>
+            <div class="award-card">
+                <span class="tag">補助</span>
+                <p class="date">2013年9月-迄今 · 農業部</p>
+                <h3>獎勵就學金</h3>
+                <p>榮獲農業部補助，得以申領獎勵就學金。</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p data-en="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github" data-lang="" data-zh="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github"></p>
+</footer>
+
+</body>
+</html>

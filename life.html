@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>YCWU SPACE - 生活紀錄</title>
+       <link rel="icon" href="icon/favicon.svg" type="image/svg+xml">
+  <style>
+    body { 
+      font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
+      background-color: #FFFFFF;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header { 
+      background: #f4f7fa;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0073e6;
+      font-weight: bold;
+      transform: scale(1.2);
+    }
+
+    .search-box {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 5px 10px;
+      margin-top: 12px;
+      margin-left: 0px;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      padding: 5px;
+      font-size: 14px;
+      width: 200px;
+    }
+
+    .search-box button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .search-box:hover {
+      box-shadow: 0 0 5px rgba(0, 115, 230, 0.4);
+    }
+
+    .language-toggle {
+      cursor: pointer;
+      font-weight: bold;
+      color: #333;
+      margin-left: 10px;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1, h2, h3 { 
+      color: #0073e6;
+      margin: 5px 0;
+    }
+
+    /* ✅ 圖片區塊 */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+      justify-items: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 38 / 21.6; /* ✅ 保持22:40比例 */
+      object-fit: contain;   /* ✅ 不切圖，完整顯示 */
+      background-color: auto; /* ✅ 填背景避免空白突兀 */
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+
+    .gallery img[data-failed="true"] {
+      border: 2px dashed #ff4d4f;
+      background-color: #fff2f2;
+    }
+
+    .site-logo {
+      height: 80px;  /* 原本 60px，改小一點 */
+      width: auto;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #f4f7fa;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+
+  <script>
+    let currentLang = 'zh';
+
+    function updateLanguage() {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${currentLang}`);
+      });
+      document.documentElement.lang = currentLang;
+    }
+
+    function toggleLanguage() {
+      currentLang = (currentLang === 'zh') ? 'en' : 'zh';
+      updateLanguage();
+    }
+
+    function siteSearch() {
+      const query = document.getElementById("searchInput").value.trim().toLowerCase();
+      if (query.includes("首頁") || query.includes("home")) {
+        window.location.href = "index.html";
+      } else if (query.includes("關於我") || query.includes("about")) {
+        window.location.href = "about.html";
+      } else if (query.includes("公開發表成果") || query.includes("publications")) {
+        window.location.href = "publications.html";
+      } else if (query.includes("資格與榮譽") || query.includes("awards")) {
+        window.location.href = "awards.html";
+      } else if (query.includes("生活") || query.includes("life")) {
+        window.location.href = "life.html";
+      } else if (query.includes("聯絡方式") || query.includes("contact")) {
+        window.location.href = "contact.html";
+      } else {
+        alert("找不到相關內容，請重新輸入。");
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateLanguage(); // 初始載入中文
+    });
+
+// ✅ 自動重試圖片載入機制
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll("img");
+
+  images.forEach(img => {
+    img.addEventListener("error", () => {
+      // 若圖片第一次載入失敗，嘗試重新載入一次
+      if (!img.dataset.retried) {
+        img.dataset.retried = "true";
+        const originalSrc = img.src.split("?")[0]; // 移除舊快取參數
+        setTimeout(() => {
+          img.src = `${originalSrc}?retry=${Date.now()}`;
+        }, 800); // 延遲 0.8 秒後重試
+      } 
+      // 若已重試過仍失敗，就標示為失敗
+      else {
+        img.dataset.failed = "true";
+        img.style.opacity = "0.5";
+        img.style.filter = "grayscale(80%)";
+        img.title = "⚠️ 無法載入圖片";
+      }
+    });
+  });
+});
+
+
+  </script>
+</head>
+
+<body>
+  <header>
+  <div>
+    <a href="index.html">
+      <img src="icon/logo.svg" alt="個人Logo" class="site-logo">
+    </a>
+  </div>
+    <div>
+      <nav>
+        <a href="index.html" data-lang data-zh="首頁" data-en="Home"></a>
+        <a href="about.html" data-lang data-zh="關於我" data-en="About"></a>
+        <a href="publications.html" data-lang data-zh="公開發表成果" data-en="Publications"></a>
+        <a href="awards.html" data-lang data-zh="資格與榮譽" data-en="awards"></a>
+        <a href="life.html" data-lang data-zh="生活紀錄" data-en="Life"></a>
+        <a href="contact.html" data-lang data-zh="聯絡方式" data-en="Contact"></a>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜尋..." onkeydown="if(event.key==='Enter'){siteSearch();}">
+        <button onclick="siteSearch()">🔍</button>
+      </div>
+      <span class="language-toggle" onclick="toggleLanguage()">中文/English</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2 data-lang data-zh="來過這個世界的證明" data-en="Life Moments">來過這個世界的證明 Life Moments</h2>
+    <div class="gallery">
+      <img src="Photo/20231118_152557.jpg" alt="life photo 1" loading="lazy">
+      <img src="Photo/20231128_131535.jpg" alt="life photo 2" loading="lazy">
+      <img src="Photo/20240101_164822.jpg" alt="life photo 3" loading="lazy">
+      <img src="Photo/20240101_185007.jpg" alt="life photo 4" loading="lazy">
+      <img src="Photo/20240106_123641.jpg" alt="life photo 5" loading="lazy">
+      <img src="Photo/20240224_150147.jpg" alt="life photo 6" loading="lazy">
+      <img src="Photo/20240323_173938.jpg" alt="life photo 7" loading="lazy">
+      <img src="Photo/20241020_103112.jpg" alt="life photo 8" loading="lazy">
+      <img src="Photo/20241022_131000.jpg" alt="life photo 9" loading="lazy">
+      <img src="Photo/20241022_142717.jpg" alt="life photo 10" loading="lazy">
+      <img src="Photo/20241022_190323.jpg" alt="life photo 11" loading="lazy">
+      <img src="Photo/20241023_140820.jpg" alt="life photo 12" loading="lazy">
+      <img src="Photo/20250302_152415.jpg" alt="life photo 13" loading="lazy">
+      <img src="Photo/1731724555119.jpg" alt="life photo 14" loading="lazy">
+      <img src="Photo/20250615_145031.jpg" alt="life photo 15" loading="lazy">
+      <img src="Photo/IMG_0935.JPG" alt="life photo 16" loading="lazy">
+      <img src="Photo/IMG_1169.JPG" alt="life photo 17" loading="lazy">
+      <img src="Photo/IMG_1763.JPG" alt="life photo 18" loading="lazy">
+      <img src="Photo/20250809_162235.jpg" alt="life photo 19" loading="lazy">
+    </div>
+  </div>
+
+  <footer>
+    <p data-en="© 2025 YI-CIN, WU. All Rights Reserved. Powered by Github" 
+       data-lang 
+       data-zh="© 2025 吳翊勤. All Rights Reserved. Powered by Github">
+    </p>
+  </footer>
+</body>
+</html>
