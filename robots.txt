@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ycwuspace.github.io/me/sitemap.xml
