@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>YCWU SPACE-關於我</title>
+       <link rel="icon" href="icon/favicon.svg" type="image/svg+xml">
+<style>
+body { 
+  font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
+  background-color:#FFFFFF; 
+  color:#333; 
+  margin:0; 
+  padding:0;
+}
+header { 
+  background:#f4f7fa;
+  padding:15px; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center;
+  animation: fadeIn 1s ease-in-out;
+}
+nav a {
+  margin:0 10px; 
+  text-decoration:none; 
+  color:#333;
+  transition: all 2.0s;
+}
+nav a:hover {
+  color:#0073e6; 
+  font-weight:bold; 
+  transform: scale(1.2);
+}
+.search-box {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-top: 12px;
+  margin-left: 0px;
+  transition: all 0.3s ease;
+}
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  width: 200px;
+}
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.search-box:hover {
+  box-shadow: 0 0 5px rgba(0, 115, 230, 0.4);
+}
+.container { 
+  padding:40px; 
+  max-width:1200px; 
+  margin:auto;
+}
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+.image-section {
+  flex: 1 1 400px;
+  max-width: 540px;
+  min-width: 300px;
+}
+.profile-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+.text-section {
+  flex: 1 1 400px;
+  min-width: 280px;
+  opacity: 0;
+  animation: fadeInUp 1.0s ease-in-out 0.5s forwards;
+}
+.text-section p {
+  text-align: justify;
+}
+h1,h2,h3,h4,h5 { 
+  color:#0073e6; 
+  margin:5px 0; 
+}
+.language-toggle { 
+  cursor:pointer; 
+  font-weight:bold; 
+  color:#333; 
+}
+footer {
+  text-align:center;
+  margin-top: 50px; 
+  padding:10px; 
+  background:#f4f7fa;
+  animation: fadeIn 1s ease-in-out 1s forwards;
+}
+
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-section {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 技能樹樣式 */
+.skill-category { margin-top: 32px; }
+.skill-category h4 {
+  color: #005bbb;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  border-left: 4px solid #0073e6;
+  padding-left: 8px;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin: 0 0 0 0;
+}
+.skill-card {
+  aspect-ratio: 5 / 6;
+  min-height: 100px;
+  border: 2px solid #0073e6;
+  background: #f2f4f7;
+  border-radius: 8px;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.skill-card .icon-wrap {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 4px;
+}
+.skill-card .skill-icon {
+  max-width: 60%;
+  height: auto;
+  display: block;
+}
+.skill-card .skill-label {
+  margin-top: 12px;
+  font-weight: 650;
+  text-align: center;
+  width: 200%;
+  font-size: 0.85rem;
+  padding: 6px 4px 4px 4px;
+  color: #203243;
+  line-height: 1.2;
+}
+@media (max-width: 1200px) { .skills-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 992px) { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .skills-grid { grid-template-columns: repeat(1, 1fr); } }
+
+.skills-section {
+  margin-top: 60px;
+  width: 100%;
+}
+.skills-section h3 {
+  color: #0073e6;
+  margin-bottom: 16px;
+}
+
+/* 雙欄技能樹排列 */
+.skill-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  margin-bottom: 0;
+}
+
+
+/* 涉及我的報導區塊樣式 */
+.reports-section {
+  margin-top: 0px;
+  width: 210%;
+}
+.reports-section h3 {
+  color: #0073e6;
+  margin-bottom: 30px;
+}
+.reports-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.report-card {
+  background: #f4f7fa;
+  border: 2px solid #0073e6;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.report-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.report-card h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #005bbb;
+  font-size: 1.1rem;
+}
+.report-card p {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+.report-card a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+.report-card a:hover {
+  text-decoration: underline;
+}
+
+/* 「閱讀更多」按鈕樣式 */
+.read-more-btn {
+  background: linear-gradient(135deg, #0073e6, #00b4d8);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.read-more-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,115,230,0.4);
+  background: linear-gradient(135deg, #005bb5, #0096c7);
+  color: white; /* 滑鼠移上去時仍保持白色字 */
+}
+
+    .site-logo {
+      height: 80px;  /* 原本 60px，改小一點 */
+      width: auto;
+      border-radius: 8px;
+    }
+
+
+/* 手機版修正，避免橫向超出 */
+@media (max-width: 992px) {
+  .reports-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    width: 100%;                  /* 🔧 強制滿版 */
+    flex-direction: column;       /* 🔧 改為上下排列 */
+    align-items: stretch;         /* 🔧 撐滿整個寬度 */
+  }
+
+
+
+</style>
+
+<script>
+        let currentLang = 'zh';
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+            document.documentElement.lang = currentLang;
+        }
+
+        function toggleLanguage() {
+            currentLang = (currentLang === 'zh') ? 'en' : 'zh';
+            updateLanguage();
+        }
+
+        function siteSearch() {
+            const query = document.getElementById("searchInput").value.trim().toLowerCase();
+            if (query.includes("首頁") || query.includes("home")) {
+                window.location.href = "index.html";
+            } else if (query.includes("關於我") || query.includes("about")) {
+                window.location.href = "about.html";
+            } else if (query.includes("公開發表作品") || query.includes("publications")) {
+                window.location.href = "publications.html";
+            } else if (query.includes("資格與榮譽") || query.includes("awards")) {
+                window.location.href = "awards.html";
+            } else if (query.includes("生活紀錄") || query.includes("life")) {
+                window.location.href = "life.html";
+            } else if (query.includes("聯絡方式") || query.includes("contact")) {
+                window.location.href = "contact.html";
+            } else {
+                alert("找不到相關內容，請重新輸入。");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateLanguage();
+        });
+    </script>
+</head>
+
+<body>
+<header>
+  <div>
+    <a href="index.html">
+      <img src="icon/logo.svg" alt="個人Logo" class="site-logo">
+    </a>
+  </div>
+<div>
+<nav>
+            <a data-en="Home" data-lang="" data-zh="首頁" href="index.html"></a>
+            <a data-en="About" data-lang="" data-zh="關於我" href="about.html"></a>
+            <a data-en="Publications" data-lang="" data-zh="公開發表作品" href="publications.html"></a>
+            <a data-en="awards" data-lang="" data-zh="資格與榮譽" href="awards.html"></a>
+            <a href="life.html" data-lang data-zh="生活紀錄" data-en="Life"></a>
+            <a data-en="Contact" data-lang="" data-zh="聯絡方式" href="contact.html"></a>
+</nav>
+<div class="search-box">
+<input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
+<button onclick="siteSearch()">🔍</button>
+</div>
+<span class="language-toggle" onclick="toggleLanguage()">中文/English</span>
+</div>
+</header>
+
+<div class="container">
+  <!-- 左右兩欄 -->
+  <div class="content-wrapper">
+    <div class="image-section">
+      <img alt="Profile Photo" class="profile-image" src="YCWu.JPG"/>
+    </div>
+
+    <div class="text-section">
+      <h3 data-zh="關於我" data-en="About Me">關於我</h3>
+      <p data-en="I have a background in mechanical engineering and have been involved in this field for nearly 10 years. Besides machining and precision manufacturing, I also have experience in other fields, including acoustics and optics. My current expertise lies in nanoscale sputtering (including physical vapor deposition and chemical vapor deposition), epitaxial growth of two-dimensional materials (WS2, WSe2), optical interferometry, and sensor device development. I plan to further my career in semiconductor wafer processing and continue to refine my skills." data-lang="" data-zh="本人為機械工程相關背景出身,自接觸以來約將近過了10年,除了機械加工及精密製造等機械加工經驗外,亦有其他專業領域所學,包括聲學、光學等皆有所涉獵。目前主要專長為奈米級濺鍍(含物理氣象沉積或化學氣相沉積)、二維材料磊晶成長(WS2、WSe2)、光學干涉技術以及感測器元件開發,未來將朝向半導體晶圓製程領域邁進,持續精進相關技能。">本人為機械工程相關背景出身,自接觸以來約將近過了10年,除了機械加工及精密製造等機械加工經驗外,亦有其他專業領域所學,包括聲學、光學等皆有所涉獵。目前主要專長為奈米級濺鍍(含物理氣象沉積或化學氣相沉積)、二維材料磊晶成長(WS2、WSe2)、光學干涉技術以及感測器元件開發,未來將朝向半導體晶圓製程領域邁進,持續精進相關技能。</p>
+
+      <h3 data-zh="學歷" data-en="Education">學歷</h3>
+      <ul>
+        <li data-en="Master's in Biomedical Engineering, NYCU (2023.09-2025.06)" data-lang="" data-zh="國立陽明交通大學生物醫學工程碩士 (2023年09月-2025年06月)">國立陽明交通大學生物醫學工程碩士</li>
+        <li data-en="Bachelor in Mechanical and Computer-Aided Engineering, NFU (2019.09-2023.06)" data-lang="" data-zh="國立虎尾科技大學機械與電腦輔助工程學士 (2019年09月-2023年06月)">國立虎尾科技大學機械與電腦輔助工程學士</li>
+      </ul>
+
+      <h3 data-zh="現職" data-en="Position">現職</h3>
+      <ul>
+        <li data-en="Process Engineer at World Advanced Semiconductor Co., Ltd." data-lang="" data-zh="世界先進積體電路股份有限公司 製程工程師 (暫定2026年01月-2027年08月)">世界先進積體電路股份有限公司 製程工程師</li>
+      </ul>
+
+      <h3 data-zh="經歷" data-en="Experience">經歷</h3>
+      <ul>
+        <li data-en="Graduate Assistant, Taiwan Instrument Technology Research Center (now National Instrument Technology Research Center)" data-lang="" data-zh="台灣儀器科技研究中心(現改為國家儀器科技研究中心) 助理研究生 (2023年09月-2025年06月)">台灣儀器科技研究中心 助理研究生</li>
+        <li data-en="Clinical Researcher, Hearing Center, Jinxing Medical Hospital" data-lang="" data-zh="振興醫療財團法人振興醫院 聽覺中心 臨床研究員(2023年09月-2025年06月)">振興醫療財團法人振興醫院 聽覺中心 臨床研究員</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 技能樹全寬區 -->
+  <div class="skills-section">
+<h3 data-zh="技能樹(軟體類)" data-en="Experience(Software)">技能樹(軟體類)</h3>
+
+<!-- 雙欄排列，每列 2 個分類 -->
+<div class="skill-row">
+  <div class="skill-category">
+    <h4>🧠機構設計</h4>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/solidworks.svg"/></div><div class="skill-label">SolidWorks</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/creo.svg"/></div><div class="skill-label">Creo 6.0</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/autocad.svg"/></div><div class="skill-label">AutoCAD</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/comsol.svg"/></div><div class="skill-label">COMSOL</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/ansys.svg"/></div><div class="skill-label">ANSYS</div></div>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <h4>🧰數據處理</h4>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/origin.svg"/></div><div class="skill-label">Origin</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/prism.svg"/></div><div class="skill-label">Prism</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/matlab.svg"/></div><div class="skill-label">Matlab</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/python.svg"/></div><div class="skill-label">Python</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="skill-row">
+  <div class="skill-category">
+    <h4>📐平面設計</h4>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/photoshop.svg"/></div><div class="skill-label">Photoshop</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/illustrator.svg"/></div><div class="skill-label">Illustrator</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/powerdirector.svg"/></div><div class="skill-label">PowerDirector</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/mixcraft.svg"/></div><div class="skill-label">Mixcraft8</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/inkscape.svg"/></div><div class="skill-label">Inkscape</div></div>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <h4>🧩前端工程</h4>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/html.svg"/></div><div class="skill-label">HTML</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/css.svg"/></div><div class="skill-label">CSS</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/javascript.svg"/></div><div class="skill-label">JavaScript</div></div>
+    </div>
+  </div>
+</div>
+
+</div> <!-- 結束軟體技能樹的 skills-section -->
+<br><br>
+
+
+<!-- 技能樹(硬體類) -->
+<div class="skills-section">
+<h3 data-zh="技能樹(硬體類)" data-en="Experience(Hardware or Equipment)">技能樹(硬體類)</h3>
+
+<div class="skill-row">
+  <div class="skill-category">
+    <h4>⚙️製程技術</h4>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/deposition.svg"/></div><div class="skill-label">沉積</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/etching.svg"/></div><div class="skill-label">蝕刻</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/injection.svg"/></div><div class="skill-label">射出成形</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/heat.svg"/></div><div class="skill-label">熱處理</div></div>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <h4>📏量測分析</h4>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/confocal.svg"/></div><div class="skill-label">Confocal</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/raman.svg"/></div><div class="skill-label">Raman</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/pl.svg"/></div><div class="skill-label">PL</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/xrd.svg"/></div><div class="skill-label">XRD</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/ftir.svg"/></div><div class="skill-label">FTIR</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="skill-row">
+  <div class="skill-category">
+    <h4>🔌機械與自動控制</h4>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/cnc.svg"/></div><div class="skill-label">CNC</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/plc.svg"/></div><div class="skill-label">PLC</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/pressure.svg"/></div><div class="skill-label">氣壓控制</div></div>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <h4>🌍其他</h4>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/abtest.svg"/></div><div class="skill-label">A/B測試</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/failure.svg"/></div><div class="skill-label">失效分析</div></div>
+      <div class="skill-card"><div class="icon-wrap"><img class="skill-icon" src="icon/vibration.svg"/></div><div class="skill-label">振動量測</div></div>
+    </div>
+  </div>
+
+
+<!-- 涉及我的報導 -->
+<div class="reports-section">
+  <h3 data-zh="涉及我的報導" data-en="Reports Featuring Me">涉及我的報導</h3>
+  
+  <div class="reports-row">
+    <div class="report-card">
+      <div class="report-content">
+        <h4>光纖麥克風細如髮絲 能精準捕捉聲音</h4>
+        <p>出處：台視新聞【發現科學】｜日期：2025年05月20日</p>
+        <a href="https://www.youtube.com/watch?v=9ZhJVvm9AqY" target="_blank" class="read-more-btn">閱讀更多 →</a>
+      </div>
+    </div>
+    
+    <div class="report-card">
+      <div class="report-content">
+        <h4>技術創造力競賽奪冠</h4>
+        <p>出處：自由時報｜日期：2018年08月15日</p>
+        <a href="https://news.ltn.com.tw/news/local/paper/1224502"_target="_blank" class="read-more-btn">閱讀更多 →</a>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+
+    <div class
+</div>
+<footer>
+<p data-en="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github" data-lang="" data-zh="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github"></p>
+</footer>
+</body>
+</html>
