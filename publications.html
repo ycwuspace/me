@@ -1,158 +1,337 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title>YCWU SPACE-公開發表作品</title>
-       <link rel="icon" href="icon/favicon.svg" type="image/svg+xml">
-    <style>
-        body { 
-            font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
-            background-color:#FFFFFF; 
-            color:#333; 
-            margin:0; 
-            padding:0;
-        }
+<meta charset="utf-8"/>
+<title>YCWU SPACE-公開發表作品</title>
+<link rel="icon" href="icon/favicon.svg" type="image/svg+xml">
+<style>
+/* 核心重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        header { 
-            background:#f4f7fa; 
-            padding:15px; 
-            display:flex; 
-            justify-content:space-between; 
-            align-items:center;
-            animation: fadeIn 1s ease-in-out;
-        }
+body {
+  font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
+  background-color: #FFFFFF;
+  color: #333;
+}
 
-        nav a {
-            margin:0 10px; 
-            text-decoration:none; 
-            color:#333;
-            transition: all 2.0s;
-        }
+/* Header 樣式 */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 17px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  animation: fadeIn 1s ease-in-out;
+}
 
-        nav a:hover {
-            color:#0073e6; 
-            font-weight:bold; 
-            transform: scale(1.2);
-        }
+.site-logo {
+  height: 65px;
+  width: auto;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
 
-        .search-box {
-            display: inline-flex;
-            align-items: center;
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            padding: 5px 10px;
-            margin-top: 12px;
-            margin-left: 0px;
-            transition: all 0.3s ease;
-        }
+.site-logo:hover {
+  transform: scale(1.2);
+}
 
-        .search-box input {
-            border: none;
-            outline: none;
-            padding: 5px;
-            font-size: 14px;
-            width: 200px;
-        }
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-        .search-box button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 17px;
+  transition: color 0.3s;
+}
 
-        .container { 
-            padding:40px; 
-            max-width:1000px;
-            text-align: justify; 
-            margin:auto;
-        }
+nav a:hover {
+  color: #b3d9ff;
+}
 
-        h1 {
-            color:#0073e6;
-            font-size: 2em;
-            font-weight: bold;
-            margin:auto;
-        }
-        h2 {
-            color:#0073e6;
-            font-size: 1.6em;
-            font-weight: bold;
-            margin:auto;
-        }
-        h3 {
-            color:#0073e6;
-            margin-top: 5px;
-        }
+/* 搜尋框 */
+.search-box {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
 
-        li {
-            line-height: 1.8;
-            font-size: 1.05em;
-        }
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  width: 80px;
+  background: transparent;
+  color: white;
+}
 
-        strong {
-            font-weight: bold;
-            color: #000;
-        }
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
 
-        .site-logo {
-          height: 80px;  /* 原本 60px，改小一點 */
-          width: auto;
-          border-radius: 8px;
-        }
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
 
-        footer { 
-            text-align:center; 
-            padding:10px; 
-            background:#f4f7fa; 
-            animation: fadeIn 1s ease-in-out 1s forwards;
-        }
+.search-box:hover {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
 
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-    </style>
+/* 語言切換 */
+.language-toggle {
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.language-toggle:hover {
+  color: #b3d9ff;
+}
+
+/* 主容器 */
+.container {
+  padding: 40px;
+  max-width: 1100px;
+  margin: 110px auto 0;
+}
+
+/* 標題樣式 */
+h3 {
+  color: #0073e6;
+  margin: 20px 0 10px 0;
+}
+
+h4 {
+  color: #0073e6;
+  margin: 5px 0;
+}
+
+/* 列表樣式 */
+ol {
+  margin: 10px 0 50px 20px;
+  line-height: 1.8;
+}
+
+ol li {
+  margin-bottom: 10px;
+}
+
+/* 表格樣式 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  text-align: center;
+}
+
+thead tr {
+  background-color: #f4f7fa;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+/* 作品集卡片 */
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.portfolio-card {
+  flex: 1 1 calc(50% - 20px);
+  background: #f9fbfd;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  padding: 12px 15px;
+}
+
+.card-header h4 {
+  margin: 5px 0 4px 0;
+}
+
+.card-header p {
+  font-size: 0.9em;
+  color: #555;
+  margin: 0;
+}
+
+.card-image {
+  display: none;
+  padding: 10px;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.card-details {
+  display: none;
+  padding: 0 15px 15px 15px;
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.5;
+}
+
+.card-button {
+  text-align: center;
+  padding: 10px;
+}
+
+.read-more-btn {
+  background: #0073e6;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.read-more-btn:hover {
+  background: #005bb5;
+}
+
+/* Footer */
+footer {
+  padding: 20px 0;
+  background-color: #333;
+  color: #bbb;
+  font-size: 0.85em;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* 動畫 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .header-controls {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  nav {
+    display: none;
+  }
+  
+  .portfolio-card {
+    flex: 1 1 100%;
+  }
+}
+</style>
+
 <script>
-        let currentLang = 'zh';
+let currentLang = 'zh';
 
-        function updateLanguage() {
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${currentLang}`);
-            });
-            document.documentElement.lang = currentLang;
-        }
+function updateLanguage() {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
+  });
+  document.documentElement.lang = currentLang;
+}
 
-        function toggleLanguage() {
-            currentLang = (currentLang === 'zh') ? 'en' : 'zh';
-            updateLanguage();
-        }
+function toggleLanguage() {
+  currentLang = (currentLang === 'zh') ? 'en' : 'zh';
+  updateLanguage();
+}
 
-        function siteSearch() {
-            const query = document.getElementById("searchInput").value.trim().toLowerCase();
-            if (query.includes("首頁") || query.includes("home")) {
-                window.location.href = "index.html";
-            } else if (query.includes("關於我") || query.includes("about")) {
-                window.location.href = "about.html";
-            } else if (query.includes("公開發表作品") || query.includes("publications")) {
-                window.location.href = "publications.html";
-            } else if (query.includes("資格與榮譽") || query.includes("awards")) {
-                window.location.href = "awards.html";
-            } else if (query.includes("生活紀錄") || query.includes("life")) {
-                window.location.href = "life.html";
-            } else if (query.includes("聯絡方式") || query.includes("contact")) {
-                window.location.href = "contact.html";
-            } else {
-                alert("找不到相關內容，請重新輸入。");
-            }
-        }
+function siteSearch() {
+  const query = document.getElementById("searchInput").value.trim().toLowerCase();
+  if (query.includes("首頁") || query.includes("home")) {
+    window.location.href = "index.html";
+  } else if (query.includes("關於我") || query.includes("about")) {
+    window.location.href = "about.html";
+  } else if (query.includes("公開發表作品") || query.includes("publications")) {
+    window.location.href = "publications.html";
+  } else if (query.includes("資格與榮譽") || query.includes("awards")) {
+    window.location.href = "awards.html";
+  } else if (query.includes("生活紀錄") || query.includes("life")) {
+    window.location.href = "life.html";
+  } else if (query.includes("聯絡方式") || query.includes("contact")) {
+    window.location.href = "contact.html";
+  } else {
+    alert("找不到相關內容，請重新輸入。");
+  }
+}
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateLanguage();
-        });
-    </script>
+document.addEventListener('DOMContentLoaded', () => {
+  updateLanguage();
+  
+  // 作品集按鈕功能
+  document.querySelectorAll(".read-more-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest('.portfolio-card');
+      const img = card.querySelector('.card-image');
+      const details = card.querySelector('.card-details');
+      
+      const isHidden = img.style.display === "none" || img.style.display === "";
+      if (isHidden) {
+        img.style.display = "block";
+        details.style.display = "block";
+        btn.textContent = "收合內容";
+      } else {
+        img.style.display = "none";
+        details.style.display = "none";
+        btn.textContent = "閱讀更多";
+      }
+    });
+  });
+});
+</script>
 </head>
+
 <body>
 <header>
   <div>
@@ -160,166 +339,108 @@
       <img src="icon/logo.svg" alt="個人Logo" class="site-logo">
     </a>
   </div>
-    <div>
-        <nav>
-        <a data-en="Home" data-lang="" data-zh="首頁" href="index.html"></a>
-        <a data-en="About" data-lang="" data-zh="關於我" href="about.html"></a>
-        <a data-en="Publications" data-lang="" data-zh="公開發表作品" href="publications.html"></a>
-        <a data-en="awards" data-lang="" data-zh="資格與榮譽" href="awards.html"></a>
-        <a href="life.html" data-lang data-zh="生活紀錄" data-en="Life"></a>
-        <a data-en="Contact" data-lang="" data-zh="聯絡方式" href="contact.html"></a>
-        </nav>
-<div class="search-box">
-<input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
-<button onclick="siteSearch()">🔍</button>
-</div>
-<span class="language-toggle" onclick="toggleLanguage()">中文/English</span>
-</div>
+  <div class="header-controls">
+    <nav>
+      <a data-lang data-zh="首頁" data-en="Home" href="index.html"></a>
+      <a data-lang data-zh="關於我" data-en="About" href="about.html"></a>
+      <a data-lang data-zh="公開發表作品" data-en="Publications" href="publications.html"></a>
+      <a data-lang data-zh="資格與榮譽" data-en="Awards" href="awards.html"></a>
+      <a data-lang data-zh="生活紀錄" data-en="Life" href="life.html"></a>
+      <a data-lang data-zh="聯絡方式" data-en="Contact" href="contact.html"></a>
+    </nav>
+    <div class="search-box">
+      <input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
+      <button onclick="siteSearch()">🔍</button>
+    </div>
+    <span class="language-toggle" onclick="toggleLanguage()">中/Eng.</span>
+  </div>
 </header>
 
 <div class="container">
+  <h3>國際期刊論文 (International Journal Papers)</h3>
+  <ol>
+    <li>Lieber Po-Hung Li, <strong>Yi-Cin Wu*</strong>, Quoc-Thinh Dinh, Wei-Hsuan Huang, Thi-Thu-Hien Pham, Yu-Bin Chen, Chien-Hao Liu, and Cheng-Yang Liu (2025). Compact Fabry-Pérot Fiber-Optic Sensor for Dual Acoustic and Temperature Detection. (Submit). (SCI).</li>
+    <li>Lieber Po-Hung Li, Shao-Chun He, <strong>Yi-Cin Wu*</strong>, Wei-Yu Chen, Wei-Chun Chen, Ying-Hui Lai, and Cheng-Yang Liu, "Miniaturized Fabry-Perot fiber-optic microphone based on capillary tube and hydrogel diaphragm," Optics and Laser Technology, Vol. 185, pp. 112582, 2025. (SCI, IF=4.6)</li>
+    <li>Quoc-Thinh Dinh, <strong>Yi-Cin Wu*</strong>, Wei-Yu Chen, Yu-Bin Chen, Oleg V. Minin, Igor V. Minin, and Cheng-Yang Liu, "Photonic hook shaping achieved by the micro-nano fiber array based Janus cylindrical metalens," Physica Scripta, Vol. 99, No. 12, pp. 125553, 2024. (SCI, IF=2.6)</li>
+  </ol>
 
-    <h3>國際期刊論文 (International Journal Papers)</h3>
-    <ol>
-        <li>Lieber Po-Hung Li, <strong>Yi-Cin Wu*</strong>, Quoc-Thinh Dinh, Wei-Hsuan Huang, Thi-Thu-Hien Pham, Yu-Bin Chen, Chien-Hao Liu, and Cheng-Yang Liu (2025). Compact Fabry-Pérot Fiber-Optic Sensor for Dual Acoustic and Temperature Detection. (Submit). (SCI).</li>
-        <li>Lieber Po-Hung Li, Shao-Chun He, <strong>Yi-Cin Wu*</strong>, Wei-Yu Chen, Wei-Chun Chen, Ying-Hui Lai, and Cheng-Yang Liu, “Miniaturized Fabry-Perot fiber-optic microphone based on capillary tube and hydrogel diaphragm,” Optics and Laser Technology, Vol. 185, pp. 112582, 2025. (SCI, IF=4.6)</li>
-        <li>Quoc-Thinh Dinh, <strong>Yi-Cin Wu*</strong>, Wei-Yu Chen, Yu-Bin Chen, Oleg V. Minin, Igor V. Minin, and Cheng-Yang Liu, “Photonic hook shaping achieved by the micro-nano fiber array based Janus cylindrical metalens,” Physica Scripta, Vol. 99, No. 12, pp. 125553, 2024. (SCI, IF=2.6)</li>
-    </ol>
+  <h3>國際研討會論文 (International Conference Papers)</h3>
+  <ol>
+    <li><strong>Yi-Cin Wu*</strong>, Kun-An Chiu, Hua-Lin Chen, Wei-Lin Wang, Wei-Chun Chen, Hung-Pin Chen, Yu-Wei Lin, Che-Chin Chen, Fong-Zhi Chen, and Cheng-Yang Liu, "Two-step synthesis of large-area WS2 flakes using hot-wall CVD," 18th International Conference on Plasma-Nano Technology & Science, Aichi, Japan, 2025.</li>
+    <li>Kun-An Chiu, Hua-Lin Chen, Yi-Cheng Li, Cheng-Dian Yan, <strong>Yi-Cin Wu*</strong>, Wei-Lin Wang, Wei-Chun Chen, Hung-Pin Chen, Yu-Wei Lin, Che-Chin Chen, Yu-Chuan Lin, Cheng-Yang Liu, and Fong-Zhi Chen, "Flow field impact on the synthesis of 2D-WS2 on c-sapphire," New Diamond and Nano Carbons, Sydney, Australia, 2024.</li>
+  </ol>
 
-    <h3>國際研討會論文 (International Conference Papers)</h3>
-    <ol>
-        <li><strong>Yi-Cin Wu*</strong>, Kun-An Chiu, Hua-Lin Chen, Wei-Lin Wang, Wei-Chun Chen, Hung-Pin Chen, Yu-Wei Lin, Che-Chin Chen, Fong-Zhi Chen, and Cheng-Yang Liu, “Two-step synthesis of large-area WS2 flakes using hot-wall CVD,” 18th International Conference on Plasma-Nano Technology & Science, Aichi, Japan, 2025.</li>
-        <li>Kun-An Chiu, Hua-Lin Chen, Yi-Cheng Li, Cheng-Dian Yan, <strong>Yi-Cin Wu*</strong>, Wei-Lin Wang, Wei-Chun Chen, Hung-Pin Chen, Yu-Wei Lin, Che-Chin Chen, Yu-Chuan Lin, Cheng-Yang Liu, and Fong-Zhi Chen, “Flow field impact on the synthesis of 2D-WS2 on c-sapphire,” New Diamond and Nano Carbons, Sydney, Australia, 2024.</li>
-    </ol>
+  <h3>國內研討會論文 (Domestic Conference Papers)</h3>
+  <ol>
+    <li><strong>吳翊勤*</strong>, 丘坤安, 陳華林, 王尉霖, 陳維鈞, 陳宏彬, 林郁洧, 劉承暘, 陳峰志, "大尺寸二硫化鎢二維材料之兩階段化學氣相沉積技術開發," 中國機械工程學會第四十一屆全國學術研討會, 高雄, 台灣, 2024.</li>
+    <li><strong>吳翊勤*</strong>, 丘坤安, 陳華林, 王尉霖, 陳維鈞, 陳宏彬, 林郁洧, 劉承暘, 陳峰志, "兩階段製程合成大尺寸2D-WS2," 一一三年中國材料科學學會年會, 台中, 台灣, 2024.</li>
+    <li>何紹均, <strong>吳翊勤*</strong>, 劉承暘, "應用布拉格光纖光柵之薄膜微振動量測系統," 中華民國力學學會第四十七屆全國力學會議, 雲林, 台灣, 2024.</li>
+    <li><strong>吳翊勤*</strong>, 施道湣, 黃英哲, 陳柏宏, 邱薆蕙, "不同退火溫度對以磁控濺射製備SiC薄膜之性能研究," 2022中國機械工程學會第三十九國學術研討會, 苗栗, 台灣, 2022.</li>
+    <li><strong>吳翊勤*</strong>, 潘兆鴻, "台灣能源分析與再生能源規劃之研究," 技術與教學國際研討會, 新北, 台灣, 2022.</li>
+  </ol>
 
-    <h3>國內研討會論文 (Domestic Conference Papers)</h3>
-    <ol>
-        <li><strong>吳翊勤*</strong>, 丘坤安, 陳華琳, 王尉霖, 陳維鈞, 陳宏彬, 林郁洧, 劉承揚, 陳峰志, “大尺寸二硫化鎢二維材料之兩階段化學氣相沉積技術開發,” 中國機械工程學會第四十一屆全國學術研討會, 高雄, 台灣, 2024.</li>
-        <li><strong>吳翊勤*</strong>, 丘坤安, 陳華琳, 王尉霖, 陳維鈞, 陳宏彬, 林郁洧, 劉承揚, 陳峰志, “兩階段製程合成大尺寸2D-WS2,” 一一三年中國材料科學學會年會, 台中, 台灣, 2024.</li>
-        <li>何紹均, <strong>吳翊勤*</strong>, 劉承揚, “應用布拉格光纖光柵之薄膜微振動量測系統,” 中華民國力學學會第四十七屆全國力學會議, 雲林, 台灣, 2024.</li>
-        <li><strong>吳翊勤*</strong>, 施鐓湣, 黃英達, 陳柏宏, 邱薆蕙, “不同退火溫度對以磁控濺射製備SiC薄膜之性能研究,” 2022中國機械工程學會第三十九國學術研討會, 苗栗, 台灣, 2022.</li>
-        <li><strong>吳翊勤*</strong>, 潘兆鴻, “台灣能源分析與再生能源規劃之研究,” 技術與教學國際研討會, 新北, 台灣, 2022.</li>
-    </ol>
-
-    <h3>專利技術 (Patents)</h3>
-<table style="width:100%; border-collapse: collapse; margin-top:10px; text-align: center;">
+  <h3>專利技術 (Patents)</h3>
+  <table>
     <thead>
-        <tr style="background-color:#f4f7fa; text-align:center;">
-            <th style="border:1px solid #ccc; padding:8px;">國家</th>
-            <th style="border:1px solid #ccc; padding:8px;">發明類別</th>
-            <th style="border:1px solid #ccc; padding:8px;">專利名稱</th>
-            <th style="border:1px solid #ccc; padding:8px;">專利號</th>
-            <th style="border:1px solid #ccc; padding:8px;">生效日期</th>
-            <th style="border:1px solid #ccc; padding:8px;">狀態</th>
-        </tr>
+      <tr>
+        <th>國家</th>
+        <th>發明類別</th>
+        <th>專利名稱</th>
+        <th>專利號</th>
+        <th>生效日期</th>
+        <th>狀態</th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-            <td style="border:1px solid #ccc; padding:8px;">中華民國</td>
-            <td style="border:1px solid #ccc; padding:8px;">發明</td>
-            <td style="border:1px solid #ccc; padding:8px;">超微型電磁強健光纖光學麥克風</td>
-            <td style="border:1px solid #ccc; padding:8px;">114128673</td>
-            <td style="border:1px solid #ccc; padding:8px;">114年7月29日</td>
-            <th style="border:1px solid #ccc; padding:8px;">申請中</th>
-        </tr>
+      <tr>
+        <td>中華民國</td>
+        <td>發明</td>
+        <td>超微型電磁式強韌光纖光學麥克風</td>
+        <td>114128673</td>
+        <td>114年7月29日</td>
+        <td>申請中</td>
+      </tr>
     </tbody>
-</table>
+  </table>
 
-
-<!-- 個人作品集區塊（點選後才顯示圖片與詳細內容） -->
-<div style="margin-top: 40px;">
-    <h3>其他 (Others)</h3>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 10px;">
-        <!-- 卡片 1 -->
-<!-- 卡片 1 -->
-<div class="portfolio-card" style="flex: 1 1 calc(50% - 20px); background: #f9fbfd; border: 1px solid #ccc; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s;">
-    <div style="padding: 12px 15px;">
-        <h4 style="color:#0073e6; margin: 5px 0 4px 0;">客製化運動鞋</h4>
-        <p style="font-size: 0.9em; color:#555; margin: 0;">運用機械實現部分自動化流程及剪裁而製成之運動鞋。</p>
+  <h3>其他 (Others)</h3>
+  <div class="portfolio-grid">
+    <div class="portfolio-card">
+      <div class="card-header">
+        <h4>客製化運動鞋</h4>
+        <p>運用機械實現部分自動化流程及剪裁而製成之運動鞋。</p>
+      </div>
+      <div class="card-image">
+        <img src="Photo/shoes.jpg" alt="客製化運動鞋">
+      </div>
+      <div class="card-details">
+        <p></p>
+      </div>
+      <div class="card-button">
+        <button class="read-more-btn">閱讀更多</button>
+      </div>
     </div>
 
-    <!-- 圖片（初始隱藏） -->
-    <div id="portfolio1-image" class="portfolio-hidden" style="display: none; padding: 10px;">
-        <img src="Photo/shoes.jpg" alt="客製化運動鞋" style="width: 100%; height: auto; border-radius: 8px; object-fit: contain; display: block;">
+    <div class="portfolio-card">
+      <div class="card-header">
+        <h4>尚未新增</h4>
+        <p>尚未新增</p>
+      </div>
+      <div class="card-image">
+        <img src="images/portfolio2.jpg" alt="尚未新增">
+      </div>
+      <div class="card-details">
+        <p>敬請期待後續新增內容。</p>
+      </div>
+      <div class="card-button">
+        <button class="read-more-btn">閱讀更多</button>
+      </div>
     </div>
-
-    <!-- ✅ 在這裡加上詳細內容區塊 -->
-    <div id="portfolio1-details" class="portfolio-hidden" style="display: none; padding: 0 15px 15px 15px;">
-        <p style="font-size: 0.1em; color:#555; margin-top: 8px; line-height: 1.5;">
-        </p>
-    </div>
-
-    <!-- 閱讀更多按鈕 -->
-    <div style="text-align: center; padding: 10px;">
-        <button class="read-more-btn" data-target="portfolio1" 
-            style="background:#0073e6; color:#fff; border:none; border-radius:20px; padding:6px 14px; cursor:pointer; font-size:0.9em;">
-            閱讀更多
-        </button>
-    </div>
-</div>
-
-
-        <!-- 卡片 2 -->
-        <div class="portfolio-card" style="flex: 1 1 calc(50% - 20px); background: #f9fbfd; border: 1px solid #ccc; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s;">
-            <div style="padding: 12px 15px;">
-                <h4 style="color:#0073e6; margin: 5px 0 4px 0;">尚未新增</h4>
-                <p style="font-size: 0.9em; color:#555; margin: 0;">尚未新增</p>
-            </div>
-
-            <!-- 圖片（初始隱藏） -->
-            <div id="portfolio2-image" class="portfolio-hidden" style="display: none; padding: 10px;">
-                <img src="images/portfolio2.jpg" alt="尚未新增" style="width: 100%; height: auto; border-radius: 8px; object-fit: contain; display: block;">
-            </div>
-
-            <!-- 隱藏詳細內容 -->
-            <div id="portfolio2-details" class="portfolio-hidden" style="display: none; padding: 0 15px 15px 15px;">
-                <p style="font-size: 0.9em; color:#555; margin-top: 8px;">敬請期待後續新增內容。</p>
-            </div>
-
-            <div style="text-align: center; padding: 10px;">
-                <button class="read-more-btn" data-target="portfolio2" 
-                    style="background:#0073e6; color:#fff; border:none; border-radius:20px; padding:6px 14px; cursor:pointer; font-size:0.9em;">
-                    閱讀更多
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 全域綁定腳本：確保 GitHub Pages 也可運作 -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".read-more-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const target = btn.getAttribute("data-target");
-            const img = document.getElementById(`${target}-image`);
-            const details = document.getElementById(`${target}-details`);
-            
-            const isHidden = (img.style.display === "none" || img.style.display === "");
-            if (isHidden) {
-                img.style.display = "block";
-                details.style.display = "block";
-                btn.textContent = "收合內容";
-            } else {
-                img.style.display = "none";
-                details.style.display = "none";
-                btn.textContent = "閱讀更多";
-            }
-        });
-    });
-});
-</script>
-
-
-
-
-
-
+  </div>
 </div>
 
 <footer>
-    <p>© 2025 YI-CIN WU. All Rights Reserved. Powered by Github</p>
+  <p>© 2025 YI-CIN WU. All Rights Reserved. Powered by Github</p>
 </footer>
 </body>
 </html>
