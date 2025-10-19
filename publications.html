@@ -16,9 +16,10 @@ body {
   font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
   background-color: #FFFFFF;
   color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-/* Header 樣式 */
 header {
   position: absolute;
   top: 0;
@@ -30,6 +31,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 10;
+  box-sizing: border-box;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -54,15 +56,16 @@ nav a {
   margin: 0 15px;
   text-decoration: none;
   color: #fff;
-  font-size: 17px;
-  transition: color 0.3s;
+  transition: all 0.3s;
+  font-size: 0.95em;
 }
 
 nav a:hover {
   color: #b3d9ff;
+  font-weight: normal;
+  transform: none;
 }
 
-/* 搜尋框 */
 .search-box {
   display: inline-flex;
   align-items: center;
@@ -70,6 +73,8 @@ nav a:hover {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   padding: 5px 10px;
+  margin-top: 0;
+  margin-left: 0;
   transition: all 0.3s ease;
 }
 
@@ -99,12 +104,11 @@ nav a:hover {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
 }
 
-/* 語言切換 */
 .language-toggle {
   cursor: pointer;
   font-weight: bold;
   color: #fff;
-  font-size: 16px;
+  font-size: 1em;
   transition: color 0.3s;
 }
 
@@ -330,6 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+
 </head>
 
 <body>
@@ -341,12 +347,12 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
   <div class="header-controls">
     <nav>
-      <a data-lang data-zh="首頁" data-en="Home" href="index.html"></a>
-      <a data-lang data-zh="關於我" data-en="About" href="about.html"></a>
-      <a data-lang data-zh="公開發表作品" data-en="Publications" href="publications.html"></a>
-      <a data-lang data-zh="資格與榮譽" data-en="Awards" href="awards.html"></a>
-      <a data-lang data-zh="生活紀錄" data-en="Life" href="life.html"></a>
-      <a data-lang data-zh="聯絡方式" data-en="Contact" href="contact.html"></a>
+      <a data-en="Home" data-lang data-zh="首頁" href="index.html"></a>
+      <a data-en="About" data-lang data-zh="關於我" href="about.html"></a>
+      <a data-en="Publications" data-lang data-zh="公開發表作品" href="publications.html"></a>
+      <a data-en="Awards" data-lang data-zh="資格與榮譽" href="awards.html"></a>
+      <a data-en="Life" data-lang data-zh="生活紀錄" href="life.html"></a>
+      <a data-en="Contact" data-lang data-zh="聯絡方式" href="contact.html"></a>
     </nav>
     <div class="search-box">
       <input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
