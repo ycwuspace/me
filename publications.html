@@ -20,101 +20,6 @@ body {
   padding: 0;
 }
 
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-  box-sizing: border-box;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.site-logo {
-  height: 70px;
-  width: auto;
-  border-radius: 8px;
-  transition: transform 0.3s;
-}
-
-.site-logo:hover {
-  transform: scale(1.2);
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #fff;
-  transition: all 0.3s;
-  font-size: 0.95em;
-}
-
-nav a:hover {
-  color: #b3d9ff;
-  font-weight: normal;
-  transform: none;
-}
-
-.search-box {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  padding: 5px 10px;
-  margin-top: 0;
-  margin-left: 0;
-  transition: all 0.3s ease;
-}
-
-.search-box input {
-  border: none;
-  outline: none;
-  padding: 5px;
-  font-size: 14px;
-  width: 80px;
-  background: transparent;
-  color: white;
-}
-
-.search-box input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.search-box button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: white;
-}
-
-.search-box:hover {
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
-}
-
-.language-toggle {
-  cursor: pointer;
-  font-weight: bold;
-  color: #fff;
-  font-size: 1em;
-  transition: color 0.3s;
-}
-
-.language-toggle:hover {
-  color: #b3d9ff;
-}
 
 /* 主容器 */
 .container {
@@ -274,6 +179,106 @@ footer {
     flex: 1 1 100%;
   }
 }
+
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.site-logo {
+  height: 70px;
+  width: auto;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.site-logo:hover {
+  transform: scale(1.2);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s;
+  font-size: 0.95em;
+}
+
+nav a:hover {
+  color: #b3d9ff;
+  font-weight: normal;
+  transform: none;
+}
+
+.search-box {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-top: 0;
+  margin-left: 0;
+  transition: all 0.3s ease;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  width: 100px;
+  background: transparent;
+  color: white;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+
+.search-box:hover {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+.language-toggle {
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+
+.language-toggle:hover {
+  color: #b3d9ff;
+}
+
+
+
 </style>
 
 <script>
