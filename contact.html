@@ -28,6 +28,7 @@
           padding: 20px;
           box-sizing: border-box;
 	  margin: 110px ;
+          flex-grow: 1;
         }
 
         .container-under {
@@ -105,7 +106,7 @@
 	/* Footer */
 	footer {
 	  padding: 20px 0;
-	  background-color: #333;
+	  background-image: linear-gradient(to right, #1D416B, #306998);
 	  color: #bbb;
 	  font-size: 0.85em;
 	  text-align: center;
@@ -117,14 +118,14 @@
           top: 0;
           left: 0;
           width: 100%;
-          background: rgba(0, 0, 0, 0.8);
+          background-image: linear-gradient(to right, #1D416B, #306998);
           padding: 20px 40px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           z-index: 10;
           box-sizing: border-box;
-          animation: fadeIn 1s ease-in-out;
+          animation: fadeIn 0.25s ease-in-out;
         }
         
         .site-logo {
@@ -147,15 +148,18 @@
 	nav a {
 	  margin: 0 15px;
 	  text-decoration: none;
-	  color: #fff;
+	  color: #fff; /* 導航文字顏色改為白色 */
 	  transition: all 0.3s;
 	  font-size: 0.95em;
+	  font-weight: bold
 	}
-	
+
 	nav a:hover {
-	  color: #b3d9ff;
+	  color: #b3d9ff; /* 懸停顏色 */
 	  font-weight: normal;
-	  transform: none;
+	  transform: scale(1.1);             /* 放大 */
+	  text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+	           0 0 15px #80bfff;     /* 第二層柔光 */
 	}
 	
 	.search-box {
@@ -205,7 +209,10 @@
 	}
 	
 	.language-toggle:hover {
-	  color: #b3d9ff;
+	    color: #b3d9ff;
+	  transform: scale(1.1);             /* 放大 */
+	  text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+	           0 0 15px #80bfff;     /* 第二層柔光 */
 	}
 
         /* 手機板自動縮小地圖高度 */
@@ -337,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <footer>
-<p data-en="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github" data-lang="" data-zh="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github"></p>
+<p data-en="© 2025 YCWUSPACE. All Rights Reserved. Powered by Github" data-lang="" data-zh="© 2025 YCWUSPACE. All Rights Reserved. Powered by Github"></p>
 </footer>
 </body>
 </html>
