@@ -23,8 +23,8 @@
 	.container {
 	  padding: 40px;
 	  max-width: 1200px;
-	  text-align: justify;
 	  margin: 110px auto;
+          flex-grow: 1;
 	}
 
         h2,h3 { 
@@ -35,7 +35,7 @@
 	/* Footer */
 	footer {
 	  padding: 20px 0;
-	  background-color: #333;
+	  background-image: linear-gradient(to right, #1D416B, #306998);
 	  color: #bbb;
 	  font-size: 0.85em;
 	  text-align: center;
@@ -106,14 +106,14 @@
           top: 0;
           left: 0;
           width: 100%;
-          background: rgba(0, 0, 0, 0.8);
+          background-image: linear-gradient(to right, #1D416B, #306998);
           padding: 20px 40px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           z-index: 10;
           box-sizing: border-box;
-          animation: fadeIn 1s ease-in-out;
+          animation: fadeIn 0.25s ease-in-out;
         }
         
         .site-logo {
@@ -133,19 +133,22 @@
 	  gap: 20px;
 	}
 	
-	nav a {
-	  margin: 0 15px;
-	  text-decoration: none;
-	  color: #fff;
-	  transition: all 0.3s;
-	  font-size: 0.95em;
-	}
-	
-	nav a:hover {
-	  color: #b3d9ff;
-	  font-weight: normal;
-	  transform: none;
-	}
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff; /* 導航文字顏色改為白色 */
+      transition: all 0.3s;
+      font-size: 0.95em;
+      font-weight: bold
+    }
+
+    nav a:hover {
+      color: #b3d9ff; /* 懸停顏色 */
+      font-weight: normal;
+      transform: scale(1.1);             /* 放大 */
+      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+               0 0 15px #80bfff;     /* 第二層柔光 */
+    }
 	
 	.search-box {
 	  display: inline-flex;
@@ -193,9 +196,12 @@
 	  transition: color 0.3s;
 	}
 	
-	.language-toggle:hover {
-	  color: #b3d9ff;
-	}
+    .language-toggle:hover {
+        color: #b3d9ff;
+      transform: scale(1.1);             /* 放大 */
+      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+               0 0 15px #80bfff;     /* 第二層柔光 */
+    }
 
         /* 手機版調整 */
         @media (max-width: 768px) {
