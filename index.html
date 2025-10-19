@@ -48,12 +48,15 @@
       color: #fff; /* 導航文字顏色改為白色 */
       transition: all 0.3s;
       font-size: 0.95em;
+      font-weight: bold
     }
 
     nav a:hover {
       color: #b3d9ff; /* 懸停顏色 */
       font-weight: normal;
-      transform: none;
+      transform: scale(1.1);             /* 放大 */
+      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+               0 0 15px #80bfff;     /* 第二層柔光 */
     }
 
     /* 控制導航欄右側元素的父容器 */
@@ -105,8 +108,12 @@
       color:#fff; /* 白色文字 */
       transition: color 0.3s;
     }
+
     .language-toggle:hover {
         color: #b3d9ff;
+      transform: scale(1.1);             /* 放大 */
+      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+               0 0 15px #80bfff;     /* 第二層柔光 */
     }
 
 
@@ -192,7 +199,8 @@
         color: #333; /* 標題顏色 */
         font-size: 2em;
         margin-bottom: 10px;
-        font-weight: 400;
+        font-weight: bold;
+
     }
 
     .welcome-text {
@@ -229,12 +237,12 @@
     }
 
     /* 仿圖片中的不同顏色條 */
-    .skill-bar.design { width: 90%; background: #2ecc71; }
-    .skill-bar.marketing { width: 85%; background: #3498db; }
-    .skill-bar.photography { width: 75%; background: #f1c40f; }
-    .skill-bar.branding { width: 95%; background: #9b59b6; }
-    .skill-bar.development { width: 80%; background: #e67e22; }
-    .skill-bar.seo { width: 70%; background: #e74c3c; }
+    .skill-bar.Design { width: 75%; background: #2ecc71; }
+    .skill-bar.Database { width: 80%; background: #3498db; }
+    .skill-bar.Process { width: 90%; background: #f1c40f; }
+    .skill-bar.Measurement { width: 90%; background: #9b59b6; }
+    .skill-bar.Front-end { width: 60%; background: #e67e22; }
+    .skill-bar.Others { width: 70%; background: #e74c3c; }
 
     .skill-bar {
         height: 100%;
@@ -276,6 +284,7 @@
     .announcement-date {
         color: #004080; /* 日期文字顏色較淺 */
         font-weight: 500;
+	font-weight: bold;
         min-width: 150px; /* 確保日期欄位有固定寬度，讓內容對齊 */
         padding-right: 20px;
         flex-shrink: 0; /* 防止日期被壓縮 */
@@ -393,7 +402,7 @@
     /* 確保 footer 在所有內容的最下方，並將文字置中 */
       footer {
         padding: 20px 0;
-        background-color: #333; /* 為了讓置中效果更明顯，建議使用深色背景 */
+        background-image: linear-gradient(to right, #1D416B, #306998);
         color: #bbb;
         font-size: 0.85em;
         text-align: center; /* 將文字置中 */
@@ -420,10 +429,10 @@
       const titleEl = document.querySelector('.sub-title');
       if (currentLang === 'zh') {
         nameEl.setAttribute('data-zh-name', '用心前行，每天探索新世界。');
-        titleEl.setAttribute('data-zh-title', '工程師');
+        titleEl.setAttribute('data-zh-title', '爆肝工程師');
       } else {
         nameEl.setAttribute('data-en-name', "Keep moving forward and explore new worlds every day");
-        titleEl.setAttribute('data-en-title', 'Semiconductor Engineer');
+        titleEl.setAttribute('data-en-title', 'Engineer');
       }
       nameEl.textContent = nameEl.getAttribute(`data-${currentLang}-name`);
       titleEl.textContent = titleEl.getAttribute(`data-${currentLang}-title`);
@@ -499,34 +508,34 @@
       <div class="skills-grid">
           <div class="skill-item">
               <div class="skill-name">Design</div>
-              <div class="skill-bar-container"><div class="skill-bar design"></div></div>
+              <div class="skill-bar-container"><div class="skill-bar Design"></div></div>
           </div>
           <div class="skill-item">
-              <div class="skill-name">Marketing</div>
-              <div class="skill-bar-container"><div class="skill-bar marketing"></div></div>
+              <div class="skill-name">Database</div>
+              <div class="skill-bar-container"><div class="skill-bar Database"></div></div>
           </div>
           <div class="skill-item">
-              <div class="skill-name">Photography</div>
-              <div class="skill-bar-container"><div class="skill-bar photography"></div></div>
+              <div class="skill-name">Process</div>
+              <div class="skill-bar-container"><div class="skill-bar Process"></div></div>
           </div>
           <div class="skill-item">
-              <div class="skill-name">Branding</div>
-              <div class="skill-bar-container"><div class="skill-bar branding"></div></div>
+              <div class="skill-name">Measurement</div>
+              <div class="skill-bar-container"><div class="skill-bar Measurement"></div></div>
           </div>
           <div class="skill-item">
-              <div class="skill-name">Development</div>
-              <div class="skill-bar-container"><div class="skill-bar development"></div></div>
+              <div class="skill-name">Front-end</div>
+              <div class="skill-bar-container"><div class="skill-bar Front-end"></div></div>
           </div>
           <div class="skill-item">
-              <div class="skill-name">SEO</div>
-              <div class="skill-bar-container"><div class="skill-bar seo"></div></div>
+              <div class="skill-name">Others</div>
+              <div class="skill-bar-container"><div class="skill-bar Others"></div></div>
           </div>
       </div>
   </section>
 
 
   <section class="announcements">
-    <h2>最新消息</h2>
+    <h2>最 新 消 息</h2>
     <div id="announcement-list">
       <div class="announcement"><div class="announcement-date">2026 年 01 月</div><p>【公司入職】入職世界先進積體電路股份有限公司。</p></div>
       <div class="announcement"><div class="announcement-date">2025 年 08 月</div><p>【學位資格】於國立陽明交通大學生物醫學工程系畢業並取得碩士學位。</p></div>
@@ -547,7 +556,7 @@
   </section>
 
   <footer>
-    <p data-lang data-zh="© 2025 YCWUSPACE. All Rights Reserved. Powered by Github" data-en="© 2025 YCWUSPACE. All Rights Reserved. Powered by Github"></p>
+    <p data-lang data-zh="© 2025 YCWESPACE. All Rights Reserved. Powered by Github" data-en="© 2025 YCWESPACE. All Rights Reserved. Powered by Github"></p>
   </footer>
 
 <script>
@@ -630,5 +639,4 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 </body>
-
 </html>
