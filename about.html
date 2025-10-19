@@ -19,14 +19,14 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8); /* 統一為透明背景 */
+  background-image: linear-gradient(to right, #1D416B, #306998); /* 統一為透明背景 */
   padding: 20px 40px; /* 統一 Header 垂直高度 (20px 上下內邊距) */
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
   box-sizing: border-box;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 .site-logo, .site-icon-logo { 
@@ -39,19 +39,22 @@ header {
   transform: scale(1.2);
 }
 
-nav a {
-  margin: 0 15px; 
-  text-decoration: none; 
-  color: #fff; /* 統一為白色文字 */
-  transition: all 0.3s;
-  font-size: 0.95em;
-}
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff; /* 導航文字顏色改為白色 */
+      transition: all 0.3s;
+      font-size: 0.95em;
+      font-weight: bold
+    }
 
-nav a:hover {
-  color: #b3d9ff; 
-  font-weight: normal; 
-  transform: none; 
-}
+    nav a:hover {
+      color: #b3d9ff; /* 懸停顏色 */
+      font-weight: normal;
+      transform: scale(1.1);             /* 放大 */
+      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+               0 0 15px #80bfff;     /* 第二層柔光 */
+    }
 
 /* 控制導航欄右側元素的父容器 */
 .header-controls {
@@ -103,9 +106,13 @@ nav a:hover {
   font-size: 1em; 
   transition: color 0.3s;
 }
-.language-toggle:hover {
-  color: #b3d9ff;
-}
+    .language-toggle:hover {
+        color: #b3d9ff;
+      transform: scale(1.1);             /* 放大 */
+      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+               0 0 15px #80bfff;     /* 第二層柔光 */
+    }
+
 /* ======================================================================================= */
 
 
@@ -114,6 +121,7 @@ nav a:hover {
     max-width: 1200px;
     text-align: justify; 
     margin: auto;
+    flex-grow: 1;
     margin-top: 110px; /* <<-- 修正：新增頂部邊距，讓內容區塊從 Header 下方開始 */
 }
 
@@ -158,7 +166,7 @@ h1,h2,h3,h4,h5 {
 /* Footer 樣式 (統一使用 index.html 的深色樣式) */
 footer {
   padding: 20px 0;
-  background-color: #333;
+  background-image: linear-gradient(to right, #1D416B, #306998);
   color: #bbb;
   font-size: 0.85em;
   text-align: center;
@@ -580,7 +588,7 @@ footer p {
       </div>
     </div>
   </div> </div> <footer>
-  <p data-en="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github" data-lang="" data-zh="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github">© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github</p>
+  <p data-en="© 2025 YCWUSPACE. All Rights Reserved. Powered by Github" data-lang="" data-zh="© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github">© 2025 YI-CIN,WU. All Rights Reserved. Powered by Github</p>
 </footer>
 </body>
 </html>
