@@ -15,13 +15,12 @@ body {
 }
 
 header {
-  position: relative;
+  position: absolute; /* 統一為絕對定位，讓它疊在背景圖上 */
   top: 0;
   left: 0;
   width: 100%;
-  /* 保持您上次修改的深色半透明背景 */
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.8); /* 統一為透明背景 */
+  padding: 20px 40px; /* 統一 Header 垂直高度 (20px 上下內邊距) */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,29 +29,28 @@ header {
   animation: fadeIn 1s ease-in-out;
 }
 
-.site-icon-logo {
-  height: 70px;
+.site-logo, .site-icon-logo { 
+  height: 70px; /* 統一 Logo 高度 */
   width: auto;
   border-radius: 4px;
   transition: transform 0.3s;
 }
-
-.site-icon-logo:hover {
-  transform: scale(1.05);
+.site-logo:hover, .site-icon-logo:hover {
+  transform: scale(1.2);
 }
 
 nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #fff;
+  margin: 0 15px; 
+  text-decoration: none; 
+  color: #fff; /* 統一為白色文字 */
   transition: all 0.3s;
   font-size: 0.95em;
 }
 
 nav a:hover {
-  color: #b3d9ff;
-  font-weight: normal;
-  transform: none;
+  color: #b3d9ff; 
+  font-weight: normal; 
+  transform: none; 
 }
 
 /* 控制導航欄右側元素的父容器 */
@@ -66,11 +64,11 @@ nav a:hover {
 .search-box {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1); /* 輕微的半透明底色 */
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   padding: 5px 10px;
-  margin-top: 0;
+  margin-top: 0; /* 修正：移除多餘邊距 */
   margin-left: 0;
   transition: all 0.3s ease;
 }
@@ -79,19 +77,19 @@ nav a:hover {
   outline: none;
   padding: 5px;
   font-size: 14px;
-  width: 80px;
+  width: 80px; 
   background: transparent;
-  color: white;
+  color: white; /* 統一為白色文字 */
 }
 .search-box input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7); 
 }
 .search-box button {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: white;
+  color: white; /* 統一為白色圖標 */
 }
 .search-box:hover {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
@@ -101,7 +99,8 @@ nav a:hover {
 .language-toggle {
   cursor: pointer;
   font-weight: bold;
-  color: #fff;
+  color: #fff; /* 統一為白色文字 */
+  font-size: 1em; 
   transition: color 0.3s;
 }
 .language-toggle:hover {
@@ -110,11 +109,14 @@ nav a:hover {
 /* ======================================================================================= */
 
 
-.container {
-  padding: 40px;
-  max-width: 1200px;
-  margin: auto;
+.container { 
+    padding: 40px; 
+    max-width: 1200px;
+    text-align: justify; 
+    margin: auto;
+    margin-top: 110px; /* <<-- 修正：新增頂部邊距，讓內容區塊從 Header 下方開始 */
 }
+
 .content-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -122,11 +124,13 @@ nav a:hover {
   align-items: flex-start;
   margin-top: 30px;
 }
+
 .image-section {
   flex: 1 1 400px;
   max-width: 540px;
   min-width: 300px;
 }
+
 .profile-image {
   width: 100%;
   height: auto;
@@ -134,19 +138,23 @@ nav a:hover {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   object-fit: cover;
 }
+
 .text-section {
   flex: 1 1 400px;
   min-width: 280px;
   opacity: 0;
   animation: fadeInUp 1.0s ease-in-out 0.5s forwards;
 }
+
 .text-section p {
   text-align: justify;
 }
+
 h1,h2,h3,h4,h5 {
   color: #0073e6;
   margin: 5px 0;
 }
+
 /* Footer 樣式 (統一使用 index.html 的深色樣式) */
 footer {
   padding: 20px 0;
@@ -405,30 +413,29 @@ footer p {
 <header>
   <div>
     <a href="index.html">
-      <img src="icon/logo.svg" alt="個人Logo" class="site-icon-logo">
+      <img src="icon/logo.svg" alt="個人Logo" class="site-logo">
     </a>
   </div>
-  <div class="header-controls">
-    <nav>
-      <a href="index.html" data-lang data-zh="首頁" data-en="Home"></a>
-      <a href="about.html" data-lang data-zh="關於我" data-en="About"></a>
-      <a href="publications.html" data-lang data-zh="公開發表作品" data-en="Publications"></a>
-      <a href="awards.html" data-lang data-zh="資格與榮譽" data-en="Awards"></a>
-      <a href="life.html" data-lang data-zh="生活紀錄" data-en="Life"></a>
-      <a href="contact.html" data-lang data-zh="聯絡方式" data-en="Contact"></a>
+  <div class="header-controls"> <nav>
+        <a data-en="Home" data-lang data-zh="首頁" href="index.html"></a>
+        <a data-en="About" data-lang data-zh="關於我" href="about.html"></a>
+        <a data-en="Publications" data-lang data-zh="公開發表作品" href="publications.html"></a>
+        <a data-en="Awards" data-lang data-zh="資格與榮譽" href="awards.html"></a>
+        <a href="life.html" data-lang data-zh="生活紀錄" data-en="Life"></a>
+        <a data-en="Contact" data-lang data-zh="聯絡方式" href="contact.html"></a>
     </nav>
     <div class="search-box">
-      <input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
-      <button onclick="siteSearch()">🔍</button>
+        <input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
+        <button onclick="siteSearch()">🔍</button>
     </div>
-    <span class="language-toggle" onclick="toggleLanguage()">中/Eng.</span>
+    <span class="language-toggle" onclick="toggleLanguage()">中/Eng.</span> 
   </div>
 </header>
 
 <div class="container">
   <div class="content-wrapper">
     <div class="image-section">
-      <img alt="Profile Photo" class="profile-image" src="YCWu.JPG"/>
+      <img alt="Profile Photo" class="profile-image" src="Photo/YCWu.JPG"/>
     </div>
 
     <div class="text-section">
