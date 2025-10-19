@@ -1,98 +1,50 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>YCWU SPACE-資格與榮譽</title>
        <link rel="icon" href="icon/favicon.svg" type="image/svg+xml">
     <style>
-        body { 
-            font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
-            background-color:#FFFFFF; 
-            color:#333; 
-            margin:0; 
-            padding:0;
-        }
 
-        header { 
-            background:#f4f7fa; 
-            padding:15px; 
-            display:flex; 
-            justify-content:space-between; 
-            align-items:center;
-            animation: fadeIn 1s ease-in-out;
-        }
+	* {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	}
 
-        nav a {
-            margin:0 10px; 
-            text-decoration:none; 
-            color:#333;
-            transition: all 2.0s;
-        }
+	body {
+	  font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
+	  background-color: #FFFFFF;
+	  color: #333;
+	  margin: 0;
+	  padding: 0;
+	}
 
-        nav a:hover {
-            color:#0073e6; 
-            font-weight:bold; 
-            transform: scale(1.2);
-        }
+	.container {
+	  padding: 40px;
+	  max-width: 1200px;
+	  text-align: justify;
+	  margin: 110px auto;
+	}
 
-        .search-box {
-            display: inline-flex;
-            align-items: center;
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            padding: 5px 10px;
-            margin-top: 12px;
-            margin-left: 0px;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input {
-            border: none;
-            outline: none;
-            padding: 5px;
-            font-size: 14px;
-            width: 200px;
-        }
-
-        .search-box button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .search-box:hover {
-            box-shadow: 0 0 5px rgba(0, 115, 230, 0.4);
-        }
-
-        .container { 
-            padding:40px; 
-            max-width:1200px; 
-            margin:auto;
-        }
-
-        h1,h2,h3 { 
+        h2,h3 { 
             color:#0073e6; 
             margin:5px 0; 
         }
 
-        .language-toggle { 
-            cursor:pointer; 
-            font-weight:bold; 
-            color:#333; 
-        }
-
-        footer { 
-            text-align:center; 
-            padding:10px; 
-            background:#f4f7fa; 
-            animation: fadeIn 1s ease-in-out 1s forwards;
-        }
+	/* Footer */
+	footer {
+	  padding: 20px 0;
+	  background-color: #333;
+	  color: #bbb;
+	  font-size: 0.85em;
+	  text-align: center;
+	  margin-top: 50px;
+	}
 
         /* ✨ 卡片樣式 ✨ */
         .award-section {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-divider {
@@ -111,7 +63,7 @@
         .award-card {
             background: #fff;
             border: 1px solid #ddd;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             padding: 20px;
             width: 500px;
@@ -146,13 +98,104 @@
         .award-card p {
             color: #555;
             line-height: 1.6;
+            margin-top: 10px;
         }
 
-            .site-logo {
-              height: 80px;  /* 原本 60px，改小一點 */
-              width: auto;
-              border-radius: 8px;
-            }
+        header {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          padding: 20px 40px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          z-index: 10;
+          box-sizing: border-box;
+          animation: fadeIn 1s ease-in-out;
+        }
+        
+        .site-logo {
+          height: 70px;
+          width: auto;
+          border-radius: 8px;
+	  transition: transform 0.3s;
+	}
+	
+	.site-logo:hover {
+	  transform: scale(1.2);
+	}
+	
+	.header-controls {
+	  display: flex;
+	  align-items: center;
+	  gap: 20px;
+	}
+	
+	nav a {
+	  margin: 0 15px;
+	  text-decoration: none;
+	  color: #fff;
+	  transition: all 0.3s;
+	  font-size: 0.95em;
+	}
+	
+	nav a:hover {
+	  color: #b3d9ff;
+	  font-weight: normal;
+	  transform: none;
+	}
+	
+	.search-box {
+	  display: inline-flex;
+	  align-items: center;
+	  background: rgba(255, 255, 255, 0.1);
+	  border: 1px solid rgba(255, 255, 255, 0.5);
+	  border-radius: 20px;
+	  padding: 5px 10px;
+	  margin-top: 0;
+	  margin-left: 0;
+	  transition: all 0.3s ease;
+	}
+
+	.search-box input {
+	  border: none;
+	  outline: none;
+	  padding: 5px;
+	  font-size: 14px;
+	  width: 100px;
+	  background: transparent;
+	  color: white;
+	}
+	
+	.search-box input::placeholder {
+	  color: rgba(255, 255, 255, 0.7);
+	}
+	
+	.search-box button {
+	  background: none;
+	  border: none;
+	  cursor: pointer;
+	  font-size: 16px;
+	  color: white;
+	}
+	
+	.search-box:hover {
+	  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+	}
+
+	.language-toggle {
+	  cursor: pointer;
+	  font-weight: bold;
+	  color: #fff;
+	  font-size: 1em;
+	  transition: color 0.3s;
+	}
+	
+	.language-toggle:hover {
+	  color: #b3d9ff;
+	}
 
         /* 手機版調整 */
         @media (max-width: 768px) {
@@ -175,46 +218,48 @@
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+
     </style>
 
-    <script>
-        let currentLang = 'zh';
+<script>
+let currentLang = 'zh';
 
-        function updateLanguage() {
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${currentLang}`);
-            });
-            document.documentElement.lang = currentLang;
-        }
+function updateLanguage() {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
+  });
+  document.documentElement.lang = currentLang;
+}
 
-        function toggleLanguage() {
-            currentLang = (currentLang === 'zh') ? 'en' : 'zh';
-            updateLanguage();
-        }
+function toggleLanguage() {
+  currentLang = (currentLang === 'zh') ? 'en' : 'zh';
+  updateLanguage();
+}
 
-        function siteSearch() {
-            const query = document.getElementById("searchInput").value.trim().toLowerCase();
-            if (query.includes("首頁") || query.includes("home")) {
-                window.location.href = "index.html";
-            } else if (query.includes("關於我") || query.includes("about")) {
-                window.location.href = "about.html";
-            } else if (query.includes("公開發表作品") || query.includes("publications")) {
-                window.location.href = "publications.html";
-            } else if (query.includes("資格與榮譽") || query.includes("awards")) {
-                window.location.href = "awards.html";
-            } else if (query.includes("生活紀錄") || query.includes("life")) {
-                window.location.href = "life.html";
-            } else if (query.includes("聯絡方式") || query.includes("contact")) {
-                window.location.href = "contact.html";
-            } else {
-                alert("找不到相關內容，請重新輸入。");
-            }
-        }
+function siteSearch() {
+  const query = document.getElementById("searchInput").value.trim().toLowerCase();
+  if (query.includes("首頁") || query.includes("home")) {
+    window.location.href = "index.html";
+  } else if (query.includes("關於我") || query.includes("about")) {
+    window.location.href = "about.html";
+  } else if (query.includes("公開發表作品") || query.includes("publications")) {
+    window.location.href = "publications.html";
+  } else if (query.includes("資格與榮譽") || query.includes("awards")) {
+    window.location.href = "awards.html";
+  } else if (query.includes("生活紀錄") || query.includes("life")) {
+    window.location.href = "life.html";
+  } else if (query.includes("聯絡方式") || query.includes("contact")) {
+    window.location.href = "contact.html";
+  } else {
+    alert("找不到相關內容，請重新輸入。");
+  }
+}
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateLanguage();
-        });
-    </script>
+document.addEventListener('DOMContentLoaded', () => {
+  updateLanguage();
+});
+</script>
+
 </head>
 
 <body>
@@ -224,21 +269,21 @@
       <img src="icon/logo.svg" alt="個人Logo" class="site-logo">
     </a>
   </div>
-    <div>
-        <nav>
-            <a href="index.html" data-lang data-zh="首頁" data-en="Home"></a>
-            <a href="about.html" data-lang data-zh="關於我" data-en="About"></a>
-            <a href="publications.html" data-lang data-zh="公開發表作品" data-en="Publications"></a>
-            <a href="awards.html" data-lang data-zh="資格與榮譽" data-en="Awards"></a>
-            <a href="life.html" data-lang data-zh="生活紀錄" data-en="Life"></a>
-            <a href="contact.html" data-lang data-zh="聯絡方式" data-en="Contact"></a>
-        </nav>
-        <div class="search-box">
-            <input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
-            <button onclick="siteSearch()">🔍</button>
-        </div>
-        <span class="language-toggle" onclick="toggleLanguage()">中文/English</span>
+  <div class="header-controls">
+    <nav>
+      <a data-en="Home" data-lang data-zh="首頁" href="index.html"></a>
+      <a data-en="About" data-lang data-zh="關於我" href="about.html"></a>
+      <a data-en="Publications" data-lang data-zh="公開發表作品" href="publications.html"></a>
+      <a data-en="Awards" data-lang data-zh="資格與榮譽" href="awards.html"></a>
+      <a data-en="Life" data-lang data-zh="生活紀錄" href="life.html"></a>
+      <a data-en="Contact" data-lang data-zh="聯絡方式" href="contact.html"></a>
+    </nav>
+    <div class="search-box">
+      <input id="searchInput" onkeydown="if(event.key==='Enter'){siteSearch();}" placeholder="搜尋..." type="text"/>
+      <button onclick="siteSearch()">🔍</button>
     </div>
+    <span class="language-toggle" onclick="toggleLanguage()">中/Eng.</span>
+  </div>
 </header>
 
 <div class="container">
