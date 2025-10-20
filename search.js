@@ -15,13 +15,13 @@ async function siteSearch() {
     if (lower.includes(query)) {
       const idx = lower.indexOf(query);
       const snippet = text.slice(Math.max(0, idx - 40), idx + 80);
-	const page = el.closest(".page")?.id || "page1";  // 找出所在頁面
-	results.push({
-	  title: document.title,
-	  snippet: snippet.replace(/\s+/g, " "),
-	  element: el,
-	  page: page
-	});
+      const page = el.closest(".page")?.id || "page1";  // 找出所在頁面
+      results.push({
+        title: document.title,
+        snippet: snippet.replace(/\s+/g, " "),
+        element: el,
+        page: page
+      });
     }
   });
 
@@ -100,19 +100,18 @@ function showPopup(results, query) {
               ${highlightKeyword(r.snippet, query)}...
             </div>
           </div>
-	<button data-index="${i}" class="confirm-btn" style="
-	  background: linear-gradient(90deg, #00aaff, #0072ff);
-	  color: #fff;
-	  border: none;
-	  border-radius: 999px;
-	  padding: 8px 18px;
-	  cursor: pointer;
-	  font-size: 14px;
-	  font-weight: bold;
-	  transition: all 0.3s ease;
-	  box-shadow: 0 3px 10px rgba(0, 114, 255, 0.3);
-	">確認</button>
-
+          <button data-index="${i}" class="confirm-btn" style="
+            background: linear-gradient(90deg, #00aaff, #0072ff);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 8px 18px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 114, 255, 0.3);
+          ">確認</button>
         </li>`;
     });
     html += `</ul>`;
@@ -123,52 +122,51 @@ function showPopup(results, query) {
   overlay.appendChild(box);
   document.body.appendChild(overlay);
 
-  // 點擊「確認」按鈕滾動到目標段落
+  // 🔹 點擊「確認」按鈕滾動到目標段落
   overlay.querySelectorAll(".confirm-btn").forEach((btn) => {
-btn.addEventListener("click", (e) => {
-  e.preventDefault();
-  const idx = parseInt(btn.dataset.index);
-  const target = results[idx].element;
-  if (!target) return;
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const idx = parseInt(btn.dataset.index);
+      const target = results[idx].element;
+      if (!target) return;
 
-  overlay.remove();
+      overlay.remove(); // 關閉彈窗
 
-  // 找出該公告在整體中的索引位置
-  const announcements = Array.from(document.querySelectorAll(".announcement"));
-  const index = announcements.indexOf(target.closest(".announcement"));
+      const announcements = Array.from(document.querySelectorAll(".announcement"));
+      if (announcements.length > 0) {
+        // 有分頁（index.html）
+        const index = announcements.indexOf(target.closest(".announcement"));
+        const perPage = 5;
+        const totalPages = Math.ceil(announcements.length / perPage);
+        const targetPage = Math.floor(index / perPage) + 1;
 
-  // 取得公告分頁設定
-  const perPage = 5;
-  const totalPages = Math.ceil(announcements.length / perPage);
-  const targetPage = Math.floor(index / perPage) + 1;
+        const pageInfo = document.getElementById("pageInfo");
+        const dots = document.querySelectorAll(".dot");
 
-  // 呼叫分頁區的變數（取現有腳本裡的控制元件）
-  const pageInfo = document.getElementById("pageInfo");
-  const dots = document.querySelectorAll(".dot");
+        window.currentPage = targetPage;
+        announcements.forEach((item, i) => {
+          item.style.display = (i >= (targetPage - 1) * perPage && i < targetPage * perPage) ? "flex" : "none";
+        });
 
-  // 切換頁面
-  window.currentPage = targetPage;
-  announcements.forEach((item, i) => {
-    item.style.display = (i >= (targetPage - 1) * perPage && i < targetPage * perPage) ? "flex" : "none";
+        if (pageInfo) pageInfo.textContent = `第 ${targetPage} / ${totalPages} 頁`;
+        dots.forEach(dot => dot.classList.toggle("active", Number(dot.dataset.page) === targetPage));
+
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          target.classList.add("search-highlight");
+          setTimeout(() => target.classList.remove("search-highlight"), 1500);
+        }, 100);
+
+      } else {
+        // 無分頁（about.html 等其他頁面）
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        target.classList.add("search-highlight");
+        setTimeout(() => target.classList.remove("search-highlight"), 1500);
+      }
+    });
   });
 
-  // 更新頁碼與圓點狀態
-  pageInfo.textContent = `第 ${targetPage} / ${totalPages} 頁`;
-  dots.forEach(dot => dot.classList.toggle("active", Number(dot.dataset.page) === targetPage));
-
-  // 等待顯示完成後滾動
-  setTimeout(() => {
-    target.scrollIntoView({ behavior: "smooth", block: "center" });
-
-    // 多次閃爍效果
-    target.classList.add("search-highlight");
-    setTimeout(() => target.classList.remove("search-highlight"), 1500);
-  }, 100);
-});
-
-  });
-
-  // 動畫 + 高亮樣式
+  // 🔹 動畫 + 高亮樣式
   const style = document.createElement("style");
   style.innerHTML = `
     @keyframes popupFade {
@@ -183,15 +181,13 @@ btn.addEventListener("click", (e) => {
       padding: 0 2px;
     }
     .search-highlight {
-      animation: flashHighlight 1s ease-in-out 2; /* 持續1.5秒，閃兩次 */
+      animation: flashHighlight 1s ease-in-out 2;
     }
-    
     @keyframes flashHighlight {
       0%, 100% { background: transparent; }
       25%, 75% { background: #c2154f; }
       50% { background: transparent; }
     }
-
     .confirm-btn:hover {
       transform: translateY(-2px);
       background: linear-gradient(90deg, #0096ff, #0059ff);
