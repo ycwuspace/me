@@ -66,6 +66,15 @@
         gap: 20px; /* 增加元素間的間距 */
     }
 
+    .footer-controls {
+        display: flex;
+	justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        font-size: 20px;
+        gap: 20px; /* 增加元素間的間距 */
+    }
+
     /* 搜尋框樣式 (適應深色透明背景) */
     .search-box {
       display: inline-flex;
@@ -401,7 +410,7 @@
 
     /* 確保 footer 在所有內容的最下方，並將文字置中 */
       footer {
-        padding: 20px 0;
+        padding: 30px 0;
         background-image: linear-gradient(to right, #1D416B, #306998);
         color: #bbb;
         font-size: 0.85em;
@@ -411,6 +420,29 @@
       footer p {
         margin: 0; /* 確保 p 標籤沒有額外的邊距，防止干擾置中 */
       }
+
+	#backToTopBtn {
+	  position: fixed;
+	  bottom: 80px;
+	  right: 40px;
+	  z-index: 99;
+	  font-size: 18px;
+	  border: none;
+	  outline: none;
+	  background: linear-gradient(135deg, #0073e6, #00b4d8);
+	  color: white;
+	  cursor: pointer;
+	  padding: 15px 20px;
+	  border-radius: 8px;
+	  opacity: 0.7;
+	  transition: opacity 0.3s, background-color 0.3s;
+	  display: none;
+	}
+	
+	#backToTopBtn:hover {
+	  background-color: #F00078;
+	  opacity: 1;
+	}
 
   </style>
 
@@ -558,7 +590,17 @@
   </section>
 
   <footer>
+    <div class="footer-controls"> <nav>
+        <a href="index.html" data-lang data-zh="首頁" data-en="Home"></a>
+        <a href="about.html" data-lang data-zh="關於我" data-en="About"></a>
+        <a href="publications.html" data-lang data-zh="公開發表作品" data-en="Publications"></a>
+        <a href="awards.html" data-lang data-zh="資格與榮譽" data-en="Awards"></a>
+        <a href="life.html" data-lang data-zh="生活紀錄" data-en="Life"></a>
+        <a href="contact.html" data-lang data-zh="聯絡方式" data-en="Contact"></a>
+      </nav>
+    </div>
     <p data-lang data-zh="© 2025 YCWESPACE. All Rights Reserved. Powered by Github" data-en="© 2025 YCWESPACE. All Rights Reserved. Powered by Github"></p>
+    </div>
   </footer>
 
 <script>
@@ -639,6 +681,14 @@ document.addEventListener("DOMContentLoaded", function() {
   updatePage();
 });
 </script>
+
+
+  <!-- 回到頂端按鈕 -->
+  <button id="backToTopBtn" title="回到頂端">▲</button>
+
+  <!-- 引入 JavaScript -->
+  <script src="backToTop.js"></script>
+
 
 </body>
 </html>
