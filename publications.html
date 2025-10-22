@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </head>
 
-<body>
+
 <header>
   <div>
     <a href="index.html">
@@ -409,6 +409,9 @@ document.addEventListener('DOMContentLoaded', () => {
     <span class="language-toggle" onclick="toggleLanguage()">中/Eng.</span>
   </div>
 </header>
+
+
+<body>
 
 <div class="container">
   <h3>國際期刊論文 (International Journal Papers)</h3>
@@ -493,6 +496,14 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
+  <!-- 回到頂端按鈕 -->
+  <button id="backToTopBtn" title="回到頂端">▲</button>
+
+  <!-- 引入 JavaScript -->
+  <script src="backToTop.js"></script>
+
+</body>
+
   <footer>
     <div class="footer-controls"> <nav>
         <a href="index.html" data-lang data-zh="首頁" data-en="Home"></a>
@@ -507,11 +518,5 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </footer>
 
-  <!-- 回到頂端按鈕 -->
-  <button id="backToTopBtn" title="回到頂端">▲</button>
 
-  <!-- 引入 JavaScript -->
-  <script src="backToTop.js"></script>
-
-</body>
 </html>
