@@ -264,7 +264,7 @@
     /* 公告區整體設定為白色背景 */
     .announcements {
       background-color: #ffffff; /* 為純白色 */
-      padding: 40px 0px; /* 增加 padding 使其與上方區塊視覺一致 */
+      padding: 40px 20px; /* 增加 padding 使其與上方區塊視覺一致 */
       text-align: center;
       animation: fadeIn 1s ease-in-out;
     }
@@ -442,6 +442,20 @@
 	#backToTopBtn:hover {
 	  background-color: #F00078;
 	  opacity: 1;
+	}
+
+	@media (max-width: 768px) {
+	  .announcement {
+	    flex-direction: column; /* 日期與文字改為上下排列 */
+	    align-items: flex-start;
+	    padding: 10px 10px;
+	  }
+	
+	  .announcement-date {
+	    min-width: auto;
+	    padding-right: 0;	
+	    margin-bottom: 5px;
+	  }
 	}
 
   </style>
