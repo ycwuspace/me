@@ -105,15 +105,16 @@
 
     /* 確保 footer 在所有內容的最下方，並將文字置中 */
       footer {
-	  position: fixed;
+	  position: relative;
 	  bottom: 0px;
-        padding: 30px 0;
-        background-image: linear-gradient(to right, #1D416B, #306998);
-        color: #bbb;
-        font-size: 0.85em;
-        text-align: center; /* 將文字置中 */
-        margin-top: 50px;
-      }
+          width: 100%;
+          padding: 30px 0;
+          background-image: linear-gradient(to right, #1D416B, #306998);
+          color: #bbb;
+          font-size: 0.85em;
+          text-align: center; /* 將文字置中 */
+          margin-top: 50px;
+       }
   
       footer p {
         margin: 0; /* 確保 p 標籤沒有額外的邊距，防止干擾置中 */
