@@ -18,7 +18,6 @@
 	  color: #333;
 	  margin: 0;
 	  padding: 0;
-	  padding-bottom: 80px;
 	}
 
         /* 整個內容容器置中且可自適應螢幕 */
@@ -106,17 +105,12 @@
 
     /* 確保 footer 在所有內容的最下方，並將文字置中 */
       footer {
-	  position: fixed;
-	  bottom: 0px;
-		  left: 0px;
-          width: 100%;
-          padding: 30px 0;
-          background-image: linear-gradient(to right, #1D416B, #306998);
-          color: #bbb;
-          font-size: 0.85em;
-          text-align: center; /* 將文字置中 */
-          margin-top: 50px;
-       }
+        padding: 30px 0;
+        background-image: linear-gradient(to right, #1D416B, #306998);
+        color: #bbb;
+        font-size: 0.85em;
+        text-align: center; /* 將文字置中 */
+      }
   
       footer p {
         margin: 0; /* 確保 p 標籤沒有額外的邊距，防止干擾置中 */
@@ -268,7 +262,22 @@
           .map-container iframe {
             height: 300px;
           }
+
+	  body {
+	    padding-bottom: 100px; /* 預留 footer 的高度 */
+	  }
+	
+	  footer {
+	    position: fixed;
+	    bottom: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100px; /* 可依實際 footer 高度調整 */
+	    margin-top: 0;
+	  }
+
         }
+
 
         @keyframes fadeIn {
             0% { opacity: 0; }
@@ -409,4 +418,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
