@@ -36,20 +36,19 @@
 
 	h4 {
 	  color: #0073e6;
-	  font-size:
 	  margin: 5px 0;
 	}
 	
 	/* 列表樣式 */
 	ol {
 	  margin: 10px 0 50px 20px;
-	  font-size: 14px;
+	  font-size: 1rem;
 	  line-height: 1.8;
 	}
 	
 	ol li {
 	  margin-bottom: 10px;
-	  font-size:14px;
+	  font-size:1rem;
 	}
 
 	/* 表格樣式 */
@@ -184,7 +183,17 @@
 	  .portfolio-card {
 	    flex: 1 1 100%;
 	  }
+		
+       ul {
+        font-size: 0.85rem; /* 平板或手機時縮小字體 */
+      }	
 	}
+
+	 @media (max-width: 480px) {
+       ul {
+        font-size: 0.8rem; /* 手機更小螢幕再縮小 */
+       }
+		  }
 
 
 	header {
