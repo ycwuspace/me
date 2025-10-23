@@ -11,7 +11,7 @@ async function trackVisitor() {
   // 當使用者離開頁面時，上傳追蹤資料
   window.addEventListener("beforeunload", async () => {
     const stay = ((Date.now() - startTime) / 1000).toFixed(1);
-    await fetch("https://script.google.com/macros/s/AKfycbxu7tnEbl97DhZO3T79UKnsb6WCF2k2FEFl6ObMizyxaq1mR3J2-tLgXurrs5lbD-Vv/exec", {
+    await fetch("https://script.google.com/macros/s/AKfycbxRU5_z559uNwRVEyE8lMQuEVgH9blVTaLJS2f3LK8/dev", {
       method: "POST",
       body: JSON.stringify({
         ip: ipInfo.ip,
@@ -25,3 +25,4 @@ async function trackVisitor() {
 }
 
 trackVisitor();
+
