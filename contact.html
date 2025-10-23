@@ -252,30 +252,22 @@
 	}
 
         /* 手機螢幕自動縮小地圖高度 */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .map-container iframe {
             height: 300px;
           }
+	
+  	footer {
+ 	   position: fixed;        /* 固定在畫面底部 */
+ 	   bottom: 0;
+ 	   left: 0;
+ 	   width: 100%;
+ 	   margin-top: 0;          /* 移除上方間距 */
+ 	   z-index: 50;            /* 確保在最上層（不被覆蓋） */
+ 	 }
 
-	  html, body {
-	    height: 100%; /* 讓 flex 能撐滿整個視窗高度 */
-	    margin: 0;
-	  }
-	
-	  body {
-	    display: flex;
-	    flex-direction: column;
-	    min-height: 100vh; /* 撐滿整個可視高度 */
-	  }
-	
-	  main {
-	    flex: 1; /* 撐開中間內容區 */
-	  }
-	
-	  footer {
-	    margin-top: auto; /* 自動推到底部 */
-	  }
 	}
+
 
         @keyframes fadeIn {
             0% { opacity: 0; }
@@ -329,6 +321,8 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script src="search.js"></script>
+
+</script>
 
 </head>
 <body>
