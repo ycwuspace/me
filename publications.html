@@ -21,7 +21,7 @@
 	}
 
 	.container {
-	  padding: 50px;
+	  padding: 40px;
 	  max-width: 1100px;
 	  text-align: justify;
 	  margin: 110px auto 0;
@@ -42,13 +42,11 @@
 	/* 列表樣式 */
 	ol {
 	  margin: 10px 0 50px 20px;
-	  font-size: 1rem;
 	  line-height: 1.8;
 	}
 	
 	ol li {
 	  margin-bottom: 10px;
-	  font-size:1rem;
 	}
 
 	/* 表格樣式 */
@@ -162,54 +160,6 @@
 	  from { opacity: 0; }
 	  to { opacity: 1; }
 	}
-	
-	/* 響應式 */
-	@media (max-width: 768px) {
-	  header {
-	    flex-direction: column;
-	    padding: 20px;
-	  }
-	  
-	  .header-controls {
-	    width: 100%;
-	    justify-content: space-between;
-	    margin-top: 10px;
-	  }
-	  
-	  nav {
-	    display: none;
-	  }
-	  
-	  .portfolio-card {
-	    flex: 1 1 100%;
-	  }
-		
-      ol {
-	    margin: 10px 0 50px 20px;
-	    font-size: 0.85rem;
-	    line-height: 1.8;
-	  }
-	
-	  ol li {
-	    margin-bottom: 10px;
-	    font-size:0.85rem;
-    	}	
-		
-      .container {
-	  padding: 50px;
-	  font-sie:0.85rem;
-	  text-align: justify;
-	}
-
-		
-	}
-
-	 @media (max-width: 480px) {
-       ul {
-        font-size: 0.8rem; /* 手機更小螢幕再縮小 */
-       }
-		  }
-
 
 	header {
 	  position: absolute;
@@ -315,12 +265,12 @@
 	  transition: color 0.3s;
 	}
 	
-    .language-toggle:hover {
-        color: #b3d9ff;
-      transform: scale(1.1);             /* 放大 */
-      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
-               0 0 15px #80bfff;     /* 第二層柔光 */
-    }
+	.language-toggle:hover {
+          color: #b3d9ff;
+          transform: scale(1.1);             /* 放大 */
+          text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
+          0 0 15px #80bfff;     /* 第二層柔光 */
+        }
 
 	#backToTopBtn {
 	  position: fixed;
@@ -344,6 +294,26 @@
 	  background-color: #F00078;
 	  opacity: 1;
 	}
+
+        /* 手機版調整 */
+        @media (max-width: 1024px) {
+
+	.container {
+	  width: 85%;
+	  font-size: 0.65em;
+	}
+
+	ol {
+	  
+	  line-height: 1.8;
+	}
+	
+	ol li {
+	  margin-bottom: 10px;
+	}
+
+        }
+
 
 </style>
 
