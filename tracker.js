@@ -1,60 +1,44 @@
 async function trackVisitor() {
+  console.log("🔍 Tracker 啟動中...");
+
   const startTime = Date.now();
   let clickCount = 0;
-
-  // ✅ 使用 AllOrigins 代理來抓 ipapi.co
   let ipInfo = {};
+
   try {
-    const res = await fetch(
-      "https://api.allorigins.win/get?url=" + encodeURIComponent("https://ipapi.co/json/")
-    );
-    const data = await res.json();
-    ipInfo = JSON.parse(data.contents);
+    const res = await fetch("https://corsproxy.io/?" + encodeURIComponent("https://ipapi.co/json/"));
+    ipInfo = await res.json();
+    console.log("🌐 IP 資訊抓取成功：", ipInfo);
   } catch (err) {
-    console.error("取得 IP 資訊失敗：", err);
+    console.error("❌ 取得 IP 資訊失敗：", err);
   }
 
-  // ✅ 記錄點擊次數
-  document.addEventListener("click", () => clickCount++);
+  document.addEventListener("click", () => {
+    clickCount++;
+    console.log(`🖱️ 點擊次數：${clickCount}`);
+  });
 
-  // ✅ 當使用者離開頁面時，上傳追蹤資料
   window.addEventListener("beforeunload", async () => {
     const stay = ((Date.now() - startTime) / 1000).toFixed(1);
+    console.log(`📤 準備上傳追蹤資料 (停留 ${stay} 秒)`);
 
     try {
-      const response = await fetch("YOUR_SCRIPT_URL", {
+      const response = await fetch("https://httpbin.org/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ip: ipInfo.ip || "未知",
           region: ipInfo.country_name || "未知",
           page: window.location.pathname,
-          stay: stay,
+          stay,
           clicks: clickCount,
         }),
       });
 
-      // ✅ 成功時在 console 顯示
-      const text = await response.text();
-      console.log("Tracker 已上傳資料:", text);
-
-      // ✅ 選擇性：在頁面上顯示提示訊息
-      const el = document.createElement("div");
-      el.textContent = "Tracker 已上傳資料 ✔";
-      el.style.position = "fixed";
-      el.style.bottom = "10px";
-      el.style.right = "10px";
-      el.style.padding = "5px 10px";
-      el.style.backgroundColor = "#4caf50";
-      el.style.color = "#fff";
-      el.style.borderRadius = "5px";
-      el.style.fontSize = "12px";
-      el.style.zIndex = "9999";
-      document.body.appendChild(el);
-
-      setTimeout(() => el.remove(), 3000);
+      const result = await response.json();
+      console.log("✅ Tracker 上傳成功：", result.json);
     } catch (err) {
-      console.error("Tracker 上傳失敗:", err);
+      console.error("🚫 Tracker 上傳失敗：", err);
     }
   });
 }
