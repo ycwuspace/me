@@ -1,46 +1,45 @@
 async function trackVisitor() {
-  console.log("🔍 Tracker 啟動中...");
+  // 1️⃣ 收集資料
+  const page = window.location.pathname;
+  const stay = Math.round(performance.now() / 1000);
+  const clicks = window.clickCount || 0;
 
-  const startTime = Date.now();
-  let clickCount = 0;
-  let ipInfo = {};
-
+  // 2️⃣ 取得 IP 與地區
+  let ip = "unknown", country = "unknown";
   try {
-    const res = await fetch("https://corsproxy.io/?" + encodeURIComponent("https://ipapi.co/json/"));
-    ipInfo = await res.json();
-    console.log("🌐 IP 資訊抓取成功：", ipInfo);
-  } catch (err) {
-    console.error("❌ 取得 IP 資訊失敗：", err);
+    const res = await fetch("https://ipwhois.app/json/");
+    const data = await res.json();
+    ip = data.ip;
+    country = data.country;
+  } catch (e) {
+    console.warn("無法取得 IP 資訊");
   }
 
-  document.addEventListener("click", () => {
-    clickCount++;
-    console.log(`🖱️ 點擊次數：${clickCount}`);
+  // 3️⃣ 傳送到 Google 表單（請改成你的 entry 編號）
+  const formURL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSe74h_bb1_CkcIsbGYReZxatgt_AmzYtJKB1MDob3qU9MeSsA/formResponse";
+
+  const formData = new FormData();
+  formData.append("entry.2120091794", ip);       // IP
+  formData.append("entry.1733846290", country);  // 國家
+  formData.append("entry.1801766488", page);     // 造訪時間
+  formData.append("entry.871618283", stay);     // 離開時間
+  formData.append("entry.1146234557", clicks);   //停留時間
+  formData.append("entry.951955834", clicks);   // 點擊次數
+  formData.append("entry.730942369", clicks);   // 頁面路徑
+
+  await fetch(formURL, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData,
   });
 
-  window.addEventListener("beforeunload", async () => {
-    const stay = ((Date.now() - startTime) / 1000).toFixed(1);
-    console.log(`📤 準備上傳追蹤資料 (停留 ${stay} 秒)`);
-
-    try {
-      const response = await fetch("https://httpbin.org/post", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ip: ipInfo.ip || "未知",
-          region: ipInfo.country_name || "未知",
-          page: window.location.pathname,
-          stay,
-          clicks: clickCount,
-        }),
-      });
-
-      const result = await response.json();
-      console.log("✅ Tracker 上傳成功：", result.json);
-    } catch (err) {
-      console.error("🚫 Tracker 上傳失敗：", err);
-    }
-  });
+  console.log("✅ 已上傳資料到 Google 表單");
 }
 
-trackVisitor();
+// 4️⃣ 記錄點擊數
+window.clickCount = 0;
+document.addEventListener("click", () => window.clickCount++);
+
+// 5️⃣ 在離開頁面時上傳資料
+window.addEventListener("beforeunload", trackVisitor);
