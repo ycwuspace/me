@@ -1,4 +1,4 @@
-// 請將 G-XXXXXXXXXX 換成你的實際測量 ID
+
 (function() {
   var gaScript = document.createElement('script');
   gaScript.async = true;

@@ -1,10 +1,10 @@
-// search.js - 段落搜尋 + 點擊確認滾動定位 + 高亮顯示
+
 
 async function siteSearch() {
   const query = document.getElementById("searchInput").value.trim().toLowerCase();
   if (!query) return alert("請輸入關鍵字");
 
-  // 搜尋畫面上的段落元素（<p>、<div>、<li>）
+  
   const blocks = Array.from(document.querySelectorAll("p, div, li"));
   const results = [];
 
@@ -15,7 +15,7 @@ async function siteSearch() {
     if (lower.includes(query)) {
       const idx = lower.indexOf(query);
       const snippet = text.slice(Math.max(0, idx - 40), idx + 80);
-      const page = el.closest(".page")?.id || "page1";  // 找出所在頁面
+      const page = el.closest(".page")?.id || "page1";  
       results.push({
         title: document.title,
         snippet: snippet.replace(/\s+/g, " "),
@@ -25,7 +25,7 @@ async function siteSearch() {
     }
   });
 
-  // 去重 + 限制 10 筆
+  
   const uniqueResults = [];
   const seen = new Set();
   for (const r of results) {
@@ -122,7 +122,7 @@ function showPopup(results, query) {
   overlay.appendChild(box);
   document.body.appendChild(overlay);
 
-  // 🔹 點擊「確認」按鈕滾動到目標段落
+  
   overlay.querySelectorAll(".confirm-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -130,11 +130,11 @@ function showPopup(results, query) {
       const target = results[idx].element;
       if (!target) return;
 
-      overlay.remove(); // 關閉彈窗
+      overlay.remove(); 
 
       const announcements = Array.from(document.querySelectorAll(".announcement"));
       if (announcements.length > 0) {
-        // 有分頁（index.html）
+        
         const index = announcements.indexOf(target.closest(".announcement"));
         const perPage = 5;
         const totalPages = Math.ceil(announcements.length / perPage);
@@ -158,7 +158,6 @@ function showPopup(results, query) {
         }, 100);
 
       } else {
-        // 無分頁（about.html 等其他頁面）
         target.scrollIntoView({ behavior: "smooth", block: "center" });
         target.classList.add("search-highlight");
         setTimeout(() => target.classList.remove("search-highlight"), 1500);
@@ -166,7 +165,7 @@ function showPopup(results, query) {
     });
   });
 
-  // 🔹 動畫 + 高亮樣式
+ 
   const style = document.createElement("style");
   style.innerHTML = `
     @keyframes popupFade {
