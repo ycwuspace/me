@@ -32,20 +32,20 @@
             margin:5px 0; 
         }
 
-        /* 確保 footer 在所有內容的最下方，並將文字置中 */
+        
           footer {
             padding: 30px 0;
             background-image: linear-gradient(to right, #1D416B, #306998);
             color: #bbb;
             font-size: 0.85em;
-            text-align: center; /* 將文字置中 */
+            text-align: center; 
           }
   
           footer p {
-            margin: 0; /* 確保 p 標籤沒有額外的邊距，防止干擾置中 */
+            margin: 0; 
           }
 
-        /* ✨ 卡片樣式 ✨ */
+        
         .award-section {
             margin-bottom: 50px;
         }
@@ -142,24 +142,24 @@
         align-items: center;
         margin-bottom: 30px;
         font-size: 20px;
-        gap: 20px; /* 增加元素間的間距 */
+        gap: 20px; 
     }
 	
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: #fff; /* 導航文字顏色改為白色 */
+      color: #fff; 
       transition: all 0.3s;
       font-size: 0.95em;
       font-weight: bold
     }
 
     nav a:hover {
-      color: #b3d9ff; /* 懸停顏色 */
+      color: #b3d9ff; 
       font-weight: normal;
-      transform: scale(1.1);             /* 放大 */
-      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
-               0 0 15px #80bfff;     /* 第二層柔光 */
+      transform: scale(1.1);             
+      text-shadow: 0 0 8px #b3d9ff,      
+               0 0 15px #80bfff;     
     }
 	
 	.search-box {
@@ -210,9 +210,9 @@
 	
     .language-toggle:hover {
         color: #b3d9ff;
-      transform: scale(1.1);             /* 放大 */
-      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
-               0 0 15px #80bfff;     /* 第二層柔光 */
+      transform: scale(1.1);            
+      text-shadow: 0 0 8px #b3d9ff,     
+               0 0 15px #80bfff;     
     }
 
 	#backToTopBtn {
@@ -238,7 +238,7 @@
 	  opacity: 1;
 	}
 
-        /* 手機版調整 */
+        
         @media (max-width: 1024px) {
             .award-grid {
                 flex-direction: column;
@@ -256,7 +256,7 @@
 
         }
 
-        /* ✨ 動畫 ✨ */
+       
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <div class="container">
 
-    <!-- 🎓 資格證書 -->
+    
     <div class="award-section">
         <h2>🎓 資格證書</h2>
         <div class="award-grid">
@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div class="section-divider"></div>
 
-    <!-- 🏅 榮譽獎項 -->
+    
     <div class="award-section">
         <h2>🏅 榮譽獎項</h2>
         <div class="award-grid">
@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div class="section-divider"></div>
 
-    <!-- 💰 榮獲補助 -->
+   
     <div class="award-section">
         <h2>💰 榮獲補助</h2>
         <div class="award-grid">
@@ -457,10 +457,10 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </footer>
 
-  <!-- 回到頂端按鈕 -->
+  
   <button id="backToTopBtn" title="回到頂端">▲</button>
 
-  <!-- 引入 JavaScript -->
+  
   <script src="backToTop.js"></script>
 
 </body>

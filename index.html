@@ -6,7 +6,7 @@
   <title>吳翊勤 - YCWU SPACE</title>
   <link rel="icon" href="icon/favicon.svg" type="image/svg+xml">
   <style>
-    /* 核心重置 */
+    
     body {
       font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
       background-color: #000;
@@ -15,13 +15,13 @@
       padding: 0;
     }
 
-    /* ============== 1. 頂部導航欄 (Header) - 仿圖片深色透明風格 ============== */
+    
     header {
-      position: absolute; /* 絕對定位，讓它疊在背景圖上 */
+      position: absolute; 
       top: 0;
       left: 0;
       width: 100%;
-      background: transparent; /* 透明背景 */
+      background: transparent; 
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
@@ -32,9 +32,9 @@
     }
 
     .site-icon-logo {
-      height: 70px; /* 設定 Icon 在導航欄中的高度 */
+      height: 70px; 
       width: auto;
-      border-radius: 4px; /* 根據您的 Icon 樣式，可以移除此行 */
+      border-radius: 4px; 
       transition: transform 0.3s;
     }
 
@@ -45,25 +45,25 @@
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: #fff; /* 導航文字顏色改為白色 */
+      color: #fff; 
       transition: all 0.3s;
       font-size: 0.95em;
       font-weight: bold
     }
 
     nav a:hover {
-      color: #b3d9ff; /* 懸停顏色 */
+      color: #b3d9ff; 
       font-weight: normal;
-      transform: scale(1.1);             /* 放大 */
-      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
-               0 0 15px #80bfff;     /* 第二層柔光 */
+      transform: scale(1.1);             
+      text-shadow: 0 0 8px #b3d9ff,     
+               0 0 15px #80bfff;     
     }
 
-    /* 控制導航欄右側元素的父容器 */
+    
     .header-controls {
         display: flex;
         align-items: center;
-        gap: 20px; /* 增加元素間的間距 */
+        gap: 20px; 
     }
 
     .footer-controls {
@@ -72,14 +72,14 @@
         align-items: center;
         margin-bottom: 30px;
         font-size: 20px;
-        gap: 20px; /* 增加元素間的間距 */
+        gap: 20px;
     }
 
-    /* 搜尋框樣式 (適應深色透明背景) */
+    
     .search-box {
       display: inline-flex;
       align-items: center;
-      background: rgba(255, 255, 255, 0.2); /* 淺色透明背景 */
+      background: rgba(255, 255, 255, 0.2); 
       border: 1px solid rgba(255, 255, 255, 0.5);
       border-radius: 20px;
       padding: 5px 10px;
@@ -92,61 +92,59 @@
       outline: none;
       padding: 5px;
       font-size: 14px;
-      width: 80px; /* 縮短寬度，避免導航欄太擠 */
+      width: 80px;
       background: transparent;
-      color: white; /* 輸入文字為白色 */
+      color: white; 
     }
     .search-box input::placeholder {
-        color: rgba(255, 255, 255, 0.7); /* 提示文字顏色 */
+        color: rgba(255, 255, 255, 0.7); 
     }
     .search-box button {
       background: none;
       border: none;
       cursor: pointer;
       font-size: 16px;
-      color: white; /* 按鈕圖示為白色 */
+      color: white; 
     }
     .search-box:hover {
       box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
     }
     
-    /* 語言切換樣式 */
+    
     .language-toggle { 
       cursor:pointer; 
       font-weight:bold; 
-      color:#fff; /* 白色文字 */
+      color:#fff; 
       transition: color 0.3s;
     }
 
     .language-toggle:hover {
         color: #b3d9ff;
-      transform: scale(1.1);             /* 放大 */
-      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
-               0 0 15px #80bfff;     /* 第二層柔光 */
+      transform: scale(1.1);             
+      text-shadow: 0 0 8px #b3d9ff,      
+               0 0 15px #80bfff;     
     }
 
 
-    /* ============== 2. 主視覺區 (Hero Section) - 仿圖片全螢幕背景圖和內容居中 ============== */
+    
     .container {
       position: relative;
       width: 100vw;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* 內容居中 */
+      justify-content: center; 
       align-items: center;
-      text-align: center; /* 文字居中 */
-      background-image: url('./Photo/picture.avif'); /* 保持您的背景圖 */
+      text-align: center; 
+      background-image: url('./Photo/picture.avif'); 
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      /* 調整透明度，讓背景圖更暗沉，類似圖片效果 */
-      /* 這裡使用一個偽元素來實現深色遮罩 */
-      opacity: 1; /* 取消原有的淡入動畫，交給偽元素 */
+      opacity: 1; 
       animation: none;
     }
 
-    /* 增加一個深色遮罩，讓文字更突出 */
+    
     .container::before {
         content: '';
         position: absolute;
@@ -154,15 +152,15 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.4); /* 40% 的黑色疊加 */
+        background-color: rgba(0, 0, 0, 0.4); 
         z-index: 1;
     }
 
     .hero-content {
-        z-index: 2; /* 確保內容在遮罩之上 */
+        z-index: 2; 
         color: white;
         text-align: center;
-        padding-top: 50px; /* 避免內容被頂部導航欄遮擋 */
+        padding-top: 50px; 
     }
 
     /* 圖片中的頭像 */
@@ -172,12 +170,12 @@
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 20px;
-        border: 4px solid white; /* 圖片中頭像周圍有白色邊框 */
+        border: 4px solid white; 
     }
 
     .main-quote {
-      font-size: 3.5em; /* 稍微放大 */
-      font-weight: 300; /* 調整字重，讓文字更優雅 */
+      font-size: 3.5em; 
+      font-weight: 300; 
       color: #fff;
       margin-bottom: 5px;
       margin-top: 10px;
@@ -185,27 +183,27 @@
 
     .sub-title {
         color: #fff;
-        font-size: 1.5em; /* 仿圖片中的 'Photographer' */
+        font-size: 1.5em; 
         font-weight: 300;
         margin-bottom: 30px;
     }
 
-    /* 移除原有的文本內容樣式，現在只用於主視覺區 */
+    
     .text-content {
-        display: none; /* 舊的文本區塊在這個模板中不需要 */
+        display: none; 
     }
 
 
-    /* ============== 3. 歡迎/技能區 (Welcome/Skills Section) - 仿圖片下半部 ============== */
+    
     .welcome-section {
-        background: #fff; /* 白色背景 */
+        background: #fff; 
         padding: 80px 40px;
         text-align: center;
         color: #333;
     }
 
     .welcome-section h2 {
-        color: #333; /* 標題顏色 */
+        color: #333; 
         font-size: 2em;
         margin-bottom: 10px;
         font-weight: bold;
@@ -228,7 +226,7 @@
     }
 
     .skill-item {
-        width: 30%; /* 讓它看起來像三欄 */
+        width: 30%; 
         margin: 10px 1.5%;
         text-align: left;
     }
@@ -245,7 +243,7 @@
         border-radius: 2px;
     }
 
-    /* 仿圖片中的不同顏色條 */
+    
     .skill-bar.Design { width: 75%; background: #2ecc71; }
     .skill-bar.Database { width: 80%; background: #3498db; }
     .skill-bar.Process { width: 90%; background: #f1c40f; }
@@ -259,60 +257,60 @@
     }
 
 
-    /* ============== 4. 公告區 (Announcements) - 調整樣式以對齊 ============== */
+   
 
-    /* 公告區整體設定為白色背景 */
+    
     .announcements {
-      background-color: #ffffff; /* 為純白色 */
-      padding: 40px 40px; /* 增加 padding 使其與上方區塊視覺一致 */
+      background-color: #ffffff; 
+      padding: 40px 40px; 
       text-align: center;
       animation: fadeIn 1s ease-in-out;
     }
 
     .announcements h2 {
-      color: #004080; /* 標題顏色改為深色 */
-      margin-bottom: 20px; /* 增加標題與公告列表的間距 */
+      color: #004080; 
+      margin-bottom: 20px; 
       font-size: 2em;
     }
     
-    /*  確保公告項目內的文字對齊並有適當間距 */
+    
     .announcement {
-        display: flex; /* 讓日期和內容並排 */
-        text-align: left; /* 讓內容的文字靠左對齊 */
-        max-width: 1000px; /* 限制公告項目的寬度，使其看起來居中 */
-        margin: 0 auto 15px auto; /* 居中對齊並提供底部間距 */
+        display: flex; 
+        text-align: left; 
+        max-width: 1000px; 
+        margin: 0 auto 15px auto; 
         padding: 10px 0;
-        border-bottom: 1px solid #eee; /* 增加分隔線 */
-        align-items: flex-start; /* 讓日期和內容從頂部對齊 */
+        border-bottom: 1px solid #eee; 
+        align-items: flex-start; 
     }
 
     .announcement:last-child {
-        border-bottom: none; /* 移除最後一項的分隔線 */
+        border-bottom: none; 
     }
 
     .announcement-date {
-        color: #004080; /* 日期文字顏色較淺 */
+        color: #004080; 
         font-weight: 500;
 	font-weight: bold;
-        min-width: 150px; /* 確保日期欄位有固定寬度，讓內容對齊 */
+        min-width: 150px; 
         padding-right: 20px;
-        flex-shrink: 0; /* 防止日期被壓縮 */
+        flex-shrink: 0; 
         font-size: 0.95em;
     }
 
     .announcement p {
-        margin: 0; /* 移除段落的預設上下邊距 */
+        margin: 0; 
         color: #333;
-        flex-grow: 1; /* 讓內容佔滿剩餘空間 */
+        flex-grow: 1; 
         line-height: 1.6;
     }
-    /* ----------------------------------------------------------------------- */
+    
 
-    /* 移除其他不需要的舊樣式 */
+   
     h1, h2, h3 { color: #333; margin: 5px 0; }
 
 
-    /* 保持原有的動畫 */
+    
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
@@ -323,10 +321,8 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* 保持原有的分頁和RWD樣式 */
-    /* [略 - 保持原有的分頁控制區和RWD樣式] */
 
-    /* 🔹 分頁控制區整體樣式 */
+    
     .pagination-controls {
       margin-top: 25px;
       text-align: center;
@@ -335,14 +331,14 @@
       align-items: center;
       gap: 8px;
     }
-    /* 🔹 上一頁 / 下一頁 按鈕列 */
+    
     .page-buttons {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 12px;
     }
-    /* 🔹 上一頁 / 下一頁 按鈕樣式 */
+    
     .page-btn {
       display: inline-flex;
       align-items: center;
@@ -367,14 +363,14 @@
       opacity: 0.5;
       cursor: not-allowed;
     }
-    /* 🔹 頁數文字 */
+    
     #pageInfo {
       font-weight: bold;
       color: #004080;
       font-size: 16px;
       margin-top: 5px;
     }
-    /* 🔹 圓點頁碼 */
+    
     .page-dots {
       margin-top: 10px;
       display: flex;
@@ -408,17 +404,17 @@
       box-shadow: 0 0 10px rgba(0,115,230,0.5);
     }
 
-    /* 確保 footer 在所有內容的最下方，並將文字置中 */
+    
       footer {
         padding: 30px 0;
         background-image: linear-gradient(to right, #1D416B, #306998);
         color: #bbb;
         font-size: 0.85em;
-        text-align: center; /* 將文字置中 */
+        text-align: center; 
       }
   
       footer p {
-        margin: 0; /* 確保 p 標籤沒有額外的邊距，防止干擾置中 */
+        margin: 0; 
       }
 
 	#backToTopBtn {
@@ -446,7 +442,7 @@
 
 	@media (max-width: 768px) {
 	  .announcement {
-	    flex-direction: column; /* 日期與文字改為上下排列 */
+	    flex-direction: column; 
 	    align-items: flex-start;
 	    padding: 10px 10px;
 	  }
@@ -461,7 +457,7 @@
   </style>
 
   <script>
-    /* 保持原有的 JavaScript 邏輯，但隱藏不再需要的元件 */
+    
     let currentLang = 'zh';
 
     function updateLanguage() {
@@ -470,7 +466,7 @@
       });
       document.documentElement.lang = currentLang;
 
-      // 更新主視覺區的姓名和職稱 (手動更新)
+      
       const nameEl = document.querySelector('.main-quote');
       const titleEl = document.querySelector('.sub-title');
       if (currentLang === 'zh') {
@@ -489,7 +485,7 @@
       updateLanguage();
     }
 
-    // 搜尋邏輯
+    
     function siteSearch() {
         const query = document.getElementById("searchInput").value.trim().toLowerCase();
         if (query.includes("首頁") || query.includes("home")) {
@@ -629,7 +625,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let currentPage = 1;
   const totalPages = Math.ceil(announcements.length / perPage);
 
-  // 建立分頁控制區 (確保只創建一次)
+  
   let pagination = document.querySelector(".pagination-controls");
   if (!pagination) {
       pagination = document.createElement("div");
@@ -651,7 +647,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const nextBtn = document.getElementById("nextPage");
   const pageDots = document.getElementById("pageDots");
 
-  // 動態建立圓點 (確保只創建一次)
+  
   if (pageDots.children.length === 0) {
       for (let i = 1; i <= totalPages; i++) {
         const dot = document.createElement("span");
@@ -702,12 +698,11 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
-  <!-- 回到頂端按鈕 -->
+  
   <button id="backToTopBtn" title="回到頂端">▲</button>
 
-  <!-- 引入 JavaScript -->
+  
   <script src="backToTop.js"></script>
 
 </body>
-
 </html>

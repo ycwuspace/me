@@ -5,7 +5,7 @@
 <title>YCWU SPACE-關於我</title>
 <link rel="icon" href="icon/favicon.svg" type="image/svg+xml">
 <style>
-/* 核心重置 */
+
 body {
   font-family: "Noto Sans TC", "Noto Sans CJK", "Microsoft JhengHei", sans-serif;
   background-color: #FFFFFF;
@@ -15,12 +15,12 @@ body {
 }
 
 header {
-  position: absolute; /* 統一為絕對定位，讓它疊在背景圖上 */
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
-  background-image: linear-gradient(to right, #1D416B, #306998); /* 統一為透明背景 */
-  padding: 20px 40px; /* 統一 Header 垂直高度 (20px 上下內邊距) */
+  background-image: linear-gradient(to right, #1D416B, #306998); 
+  padding: 20px 40px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@ header {
 }
 
 .site-logo, .site-icon-logo { 
-  height: 70px; /* 統一 Logo 高度 */
+  height: 70px; 
   width: auto;
   border-radius: 4px;
   transition: transform 0.3s;
@@ -42,21 +42,21 @@ header {
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: #fff; /* 導航文字顏色改為白色 */
+      color: #fff; 
       transition: all 0.3s;
       font-size: 0.95em;
       font-weight: bold
     }
 
     nav a:hover {
-      color: #b3d9ff; /* 懸停顏色 */
+      color: #b3d9ff; 
       font-weight: normal;
-      transform: scale(1.1);             /* 放大 */
-      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
-               0 0 15px #80bfff;     /* 第二層柔光 */
+      transform: scale(1.1);            
+      text-shadow: 0 0 8px #b3d9ff,      
+               0 0 15px #80bfff;    
     }
 
-/* 控制導航欄右側元素的父容器 */
+
 .header-controls {
   display: flex;
   align-items: center;
@@ -69,19 +69,19 @@ header {
         align-items: center;
         margin-bottom: 30px;
         font-size: 20px;
-        gap: 20px; /* 增加元素間的間距 */
+        gap: 20px; 
     }
 
 
-/* 搜尋框樣式 (適應深色不透明背景) */
+
 .search-box {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1); /* 輕微的半透明底色 */
+  background: rgba(255, 255, 255, 0.1); 
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   padding: 5px 10px;
-  margin-top: 0; /* 修正：移除多餘邊距 */
+  margin-top: 0; 
   margin-left: 0;
   transition: all 0.3s ease;
 }
@@ -92,35 +92,37 @@ header {
   font-size: 14px;
   width: 80px; 
   background: transparent;
-  color: white; /* 統一為白色文字 */
+  color: white; 
 }
 .search-box input::placeholder {
   color: rgba(255, 255, 255, 0.7); 
 }
+
 .search-box button {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: white; /* 統一為白色圖標 */
+  color: white; 
 }
+
 .search-box:hover {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
 }
 
-/* 語言切換樣式 */
+
 .language-toggle {
   cursor: pointer;
   font-weight: bold;
-  color: #fff; /* 統一為白色文字 */
+  color: #fff; 
   font-size: 1em; 
   transition: color 0.3s;
 }
     .language-toggle:hover {
         color: #b3d9ff;
-      transform: scale(1.1);             /* 放大 */
-      text-shadow: 0 0 8px #b3d9ff,      /* 外層光暈 */
-               0 0 15px #80bfff;     /* 第二層柔光 */
+      transform: scale(1.1);             
+      text-shadow: 0 0 8px #b3d9ff,      
+               0 0 15px #80bfff;     
     }
 
 /* ======================================================================================= */
@@ -132,7 +134,7 @@ header {
     text-align: justify; 
     margin: auto;
     flex-grow: 1;
-    margin-top: 110px; /* <<-- 修正：新增頂部邊距，讓內容區塊從 Header 下方開始 */
+    margin-top: 110px; 
 }
 
 .content-wrapper {
@@ -174,17 +176,17 @@ h1,h2,h3,h4,h5 {
 }
 
 
-    /* 確保 footer 在所有內容的最下方，並將文字置中 */
+   
       footer {
         padding: 30px 0;
         background-image: linear-gradient(to right, #1D416B, #306998);
         color: #bbb;
         font-size: 0.85em;
-        text-align: center; /* 將文字置中 */
+        text-align: center; 
       }
   
       footer p {
-        margin: 0; /* 確保 p 標籤沒有額外的邊距，防止干擾置中 */
+        margin: 0; 
       }
 
 	#backToTopBtn {
@@ -211,7 +213,7 @@ h1,h2,h3,h4,h5 {
 	}
 
 
-/* 響應式調整 */
+
 @media (max-width: 768px) {
   .content-wrapper {
     flex-direction: column;
@@ -229,7 +231,7 @@ h1,h2,h3,h4,h5 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 技能樹樣式 */
+
 .skill-category { margin-top: 5px; }
 .skill-category h4 {
   color: #005bbb;
@@ -294,7 +296,7 @@ h1,h2,h3,h4,h5 {
   margin-bottom: 16px;
 }
 
-/* 雙欄技能樹排列 */
+
 .skill-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -303,7 +305,7 @@ h1,h2,h3,h4,h5 {
 }
 
 
-/* 涉及我的報導區塊樣式 */
+
 .reports-section {
   margin-top: 50px;
   width: 100%; 
@@ -350,7 +352,7 @@ h1,h2,h3,h4,h5 {
   text-decoration: underline;
 }
 
-/* 「閱讀更多」按鈕樣式 */
+
 .read-more-btn {
   background: linear-gradient(135deg, #0073e6, #00b4d8);
   color: white;
@@ -373,7 +375,7 @@ h1,h2,h3,h4,h5 {
   color: white;
 }
 
-/* 手機版修正，避免橫向超出 */
+
 @media (max-width: 992px) {
   .reports-section {
     width: 100%;
@@ -644,10 +646,10 @@ h1,h2,h3,h4,h5 {
     </div>
   </footer>
 
-  <!-- 回到頂端按鈕 -->
+
   <button id="backToTopBtn" title="回到頂端">▲</button>
 
-  <!-- 引入 JavaScript -->
+
   <script src="backToTop.js"></script>
 
 </body>
